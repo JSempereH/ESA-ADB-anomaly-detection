@@ -1,0 +1,51 @@
+[project]
+name = "esa-adb"
+version = "0.1.0"
+description = "Preprocessing and modeling pipeline for the ESA Anomaly Detection Benchmark (ESA-ADB) dataset"
+license = "EUPL-1.2"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "polars>=1.9",
+    "pyarrow>=16.0",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "pyyaml>=6.0",
+    "python-dateutil>=2.9",
+    "tqdm>=4.66",
+    "scikit-learn>=1.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+heavy = [
+    "torch>=2.2",
+]
+tracking = [
+    "mlflow>=2.14",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+# This is a CPU/laptop-friendly project by design (see README) - pull the CPU-only
+# PyTorch build explicitly, or a plain `uv sync`/`uv lock` resolves the default PyPI
+# torch instead, which drags in the full CUDA toolkit (cublas, cudnn, nccl, triton, ...:
+# multiple extra GB) even though `torch.cuda.is_available()` still ends up False.
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
