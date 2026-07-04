@@ -1,0 +1,21 @@
+mission_number: 2
+raw_data_dir: data/raw/ESA-Mission2
+interim_dir: data/interim/Mission2
+processed_dir: data/processed/Mission2
+target_frequency_seconds: 18
+channel_count: 100
+target_channel_count: 47
+chunk_freq: 1y
+monotonic_groups:
+- 20
+categorical_max_unique: 10
+val_months: 3
+grid:
+  start: '2000-01-01 00:00:00'
+  end: '2003-07-01 00:00:00'
+split:
+  train_start: '2000-01-01 00:00:00'
+  val_start: '2001-06-30 12:00:00'
+  train_end: '2001-09-30 12:00:00'
+  test_start: '2001-09-30 12:00:00'
+  test_end: '2003-07-01 00:00:00'
