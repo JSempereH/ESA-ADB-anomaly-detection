@@ -28,6 +28,8 @@ def generate_walk_forward_folds(
     step_months: int = 1,
     window: Literal["expanding", "sliding"] = "expanding",
     sliding_window_months: int = 1,
+    step_weeks: int | None = None,
+    sliding_window_weeks: int | None = None,
 ) -> Iterator[WalkForwardFold]:
     """Monthly (or `step_months`-granularity) walk-forward folds over [start, end).
 
@@ -37,15 +39,24 @@ def generate_walk_forward_folds(
     discarding everything older (a "reactive" learner) -- adapts faster to drift but
     with much less data per fold, and noisier as a result.
 
-    The first fold needs one full `step_months` of history before its first evaluation
-    period exists, so folds start at `start + step_months`.
+    `step_weeks` (and, for sliding windows, `sliding_window_weeks`) switch the fold
+    granularity to weeks and take precedence over the month-based parameters -- the
+    retraining-cadence axis (weekly / bi-weekly / monthly / bi-monthly) is itself an
+    experimental variable in this project, not a fixed constant.
+
+    The first fold needs one full step of history before its first evaluation period
+    exists, so folds start at `start + step`.
     """
-    step = relativedelta(months=step_months)
+    step = relativedelta(weeks=step_weeks) if step_weeks else relativedelta(months=step_months)
+    if window == "sliding":
+        trail = relativedelta(weeks=sliding_window_weeks) if sliding_window_weeks else relativedelta(months=sliding_window_months)
+        if step_weeks and sliding_window_weeks is None:
+            trail = relativedelta(weeks=step_weeks)
     cursor = start + step
     fold_index = 0
     while cursor + step <= end:
         train_end = cursor
-        train_start = start if window == "expanding" else max(start, train_end - relativedelta(months=sliding_window_months))
+        train_start = start if window == "expanding" else max(start, train_end - trail)
         eval_end = cursor + step
         yield WalkForwardFold(fold_index, train_start, train_end, train_end, eval_end)
         cursor = eval_end
