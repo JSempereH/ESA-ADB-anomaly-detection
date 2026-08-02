@@ -82,6 +82,64 @@ def evaluate_window_predictions(predicted: np.ndarray, labelled_bounds: pl.DataF
     }
 
 
+DEFAULT_THRESHOLD_QUANTILES = (
+    0.90, 0.95, 0.97, 0.98, 0.99, 0.993, 0.995, 0.997, 0.998, 0.999, 0.9995, 0.9999,
+)
+
+
+def find_best_threshold_event_wise(
+    scores: np.ndarray,
+    row_times: np.ndarray,
+    events: pl.DataFrame,
+    beta: float = 0.5,
+    quantiles: tuple[float, ...] = DEFAULT_THRESHOLD_QUANTILES,
+    postprocess=None,
+) -> dict:
+    """Pick the threshold maximizing the paper's corrected event-wise F-beta, not the
+    row-level F-beta `find_best_threshold` optimizes.
+
+    The two objectives genuinely disagree: row-level F-beta rewards covering as many
+    rows as possible *inside* long events, so it drives thresholds down and floods the
+    quiet timeline with row-level false positives that the corrected event-wise metric
+    (via its TNR_t term) punishes hard. Since the deployment goal is "few alarms, well
+    placed" -- exactly what corrected event-wise F0.5 measures -- the threshold should
+    be calibrated against that same objective.
+
+    An exhaustive per-candidate-threshold scan is not possible here the way it is for
+    row-level F-beta (event segmentation isn't decomposable over a sorted-score sweep),
+    so candidates are the given `quantiles` of the calibration scores -- spanning "alarm
+    10% of the time" down to "alarm 0.01% of the time", denser near the quiet end where
+    this project's models actually operate. `postprocess` (e.g.
+    `PostprocessSpec.apply`) is applied to each candidate's predictions before scoring,
+    so the threshold is chosen for the SAME alarm pipeline that will run at eval time.
+
+    Ties prefer the HIGHER threshold (fewer alarms). If the calibration slice contains
+    no annotated events (common for a quiet month), every candidate scores 0 and the
+    quietest candidate is returned with `fallback=True` -- a deliberate "stay quiet
+    unless told otherwise" default.
+    """
+    scores = np.asarray(scores, dtype=np.float64)
+    row_times = np.asarray(row_times)
+    candidates = np.unique(np.quantile(scores, quantiles))
+
+    best = {"threshold": float(candidates[-1]), "f_beta": 0.0, "precision": 0.0, "recall": 0.0, "beta": beta, "fallback": True}
+    for thr in candidates[::-1]:  # quietest first, so ties keep the higher threshold
+        pred = scores > thr
+        if postprocess is not None:
+            pred = postprocess(pred)
+        result = evaluate_event_wise_corrected(pred, row_times, events, beta=beta)
+        if result["f_beta"] > best["f_beta"]:
+            best = {
+                "threshold": float(thr),
+                "f_beta": result["f_beta"],
+                "precision": result["precision"],
+                "recall": result["recall"],
+                "beta": beta,
+                "fallback": False,
+            }
+    return best
+
+
 def evaluate_events(row_pred: np.ndarray, row_times: np.ndarray, events: pl.DataFrame) -> pl.DataFrame:
     """Per-event detection report: for each real annotated event overlapping the
     evaluated time range, did the model flag *any* row within [StartTime, EndTime]?
@@ -165,7 +223,12 @@ def evaluate_event_wise(row_pred: np.ndarray, row_times: np.ndarray, events: pl.
     n_events = in_range_events.height
     n_detections = len(segments)
     if n_events == 0 and n_detections == 0:
-        return {"precision": 0.0, "recall": 0.0, "f_beta": 0.0, "beta": beta, "n_events": 0, "n_detections": 0}
+        # Same keys as the full path below -- callers (e.g. evaluate_event_wise_corrected,
+        # walk-forward folds over quiet weeks) index them unconditionally.
+        return {
+            "precision": 0.0, "recall": 0.0, "f_beta": 0.0, "beta": beta,
+            "n_events": 0, "n_detections": 0, "n_events_detected": 0, "n_detections_hit": 0,
+        }
 
     event_starts = in_range_events["StartTime"].to_numpy() if n_events else np.array([])
     event_ends = in_range_events["EndTime"].to_numpy() if n_events else np.array([])
@@ -282,6 +345,22 @@ def evaluate_event_wise_corrected(row_pred: np.ndarray, row_times: np.ndarray, e
         "n_events_detected": base["n_events_detected"],
         "n_detections_hit": base["n_detections_hit"],
     }
+
+
+def anomalies_only(events: pl.DataFrame) -> pl.DataFrame:
+    """Filter to `Category == "anomaly"` -- the ESA-ADB paper's own "results for
+    anomalies alone" (Kotowski et al. 2024, Supplementary Material 4.2). Rare nominal
+    events, communication gaps and invalid segments are real, atypical patterns an
+    unsupervised detector cannot reliably distinguish from true anomalies without
+    labels, but only anomalies are what SOEs actually want alarmed (rare nominal events
+    "should not be alarmed" per the paper's own event-category table). In Mission2,
+    rare nominal events outnumber true anomalies ~60:1, so the default "all events"
+    metric is almost entirely a rare-event score; pass this filtered table to
+    `evaluate_event_wise_corrected`/`evaluate_events` to instead measure "are we
+    catching the real anomalies specifically" per the paper's own caveat that those
+    numbers should be "interpreted with caution" when few anomalies exist.
+    """
+    return events.filter(pl.col("Category") == "anomaly")
 
 
 def summarize_event_detection(events_with_detected: pl.DataFrame) -> pl.DataFrame:
