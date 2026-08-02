@@ -27,6 +27,13 @@ heavy = [
 tracking = [
     "mlflow>=2.14",
 ]
+viz = [
+    "matplotlib>=3.8",
+]
+pyod = [
+    "pyod>=2.0",
+    "numba>=0.60",
+]
 
 [build-system]
 requires = ["setuptools>=68", "wheel"]
