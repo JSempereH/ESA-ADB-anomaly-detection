@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Walk-forward over the FULL Mission2 test period (no fold cap, ~20 monthly folds),
+
+SUPERSEDED by scripts/run_benchmark.py --protocol walk-forward (corrected event-wise
+metrics, event-calibrated thresholds, alarm postprocessing). Kept for provenance of the
+older window-level-metric results logged in results.jsonl.
+
 applying three training methodologies uniformly to every model used in the single-split
 benchmark:
 

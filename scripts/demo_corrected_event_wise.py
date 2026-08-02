@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Validates `evaluate_event_wise_corrected` (the ESA-ADB paper's own "corrected
+
+SUPERSEDED by scripts/run_benchmark.py --protocol paper-split (same metric, same split,
+shared runner/calibration code). Kept for provenance; its lightweight-subset replication
+of the paper's 0.949 remains unique to this script.
+
 event-wise F-score", Kotowski et al. 2024) two ways, both using the paper's own fixed
 single train/val/test split (not this project's primary walk-forward methodology --
 this script exists specifically to be comparable to the paper's published numbers):

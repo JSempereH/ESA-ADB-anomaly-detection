@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """Every lightweight model, on the paper's own fixed single train/val/test split (not
+
+SUPERSEDED by scripts/run_benchmark.py --protocol paper-split. Kept for provenance of
+the older logged results.
+
 this project's primary walk-forward methodology), with the SAME three metrics for all of
 them: window-level, event-wise, and the paper's own corrected event-wise F-score.
 

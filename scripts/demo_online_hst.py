@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """Benchmark HalfSpaceTrees (online/incremental isolation-forest-style detector) on real
+
+SUPERSEDED by scripts/run_benchmark.py (HalfSpaceTrees is a first-class model there).
+Kept for provenance of the older expanding-history comparison.
+
 mission data, in two ways:
 
 1. Single-split: same test-period benchmark as scripts/run_experiments.py's other
