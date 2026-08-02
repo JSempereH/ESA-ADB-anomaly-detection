@@ -28,6 +28,86 @@
 set -eu
 MISSION="${1:-2}"
 
+# ---------------------------------------------------------------------------------
+# CURRENT methodology (README "Results"): the unified benchmark runner. Corrected
+# event-wise F0.5 everywhere, event-wise-calibrated thresholds, alarm postprocessing.
+# The legacy demo_* steps further down reproduce the OLDER numbers (window-level
+# metrics, row-level-calibrated thresholds) kept in the README's history/appendix.
+# ---------------------------------------------------------------------------------
+
+echo "=== walk-forward benchmark: all models, refit/online/hybrid, monthly folds ==="
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,SubsystemPCAEnsemble --tag "P0: cheap models, event-calibrated + postprocessing"
+python scripts/run_benchmark.py --mission "$MISSION" --models WindowedIsolationForest,HalfSpaceTrees,Autoencoder,LSTMForecaster --tag "P0: heavy models, event-calibrated + postprocessing"
+python scripts/run_benchmark.py --mission "$MISSION" --models LaggedRidgeForecaster,NearestNominalWindow --tag "P3: new lightweight models, full walk-forward"
+
+echo ""
+echo "=== calibration A/B: legacy row-level threshold objective, same postprocessing ==="
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor --calibration row --tag "P0 A/B: legacy row-level calibration, same postprocessing"
+
+echo ""
+echo "=== paper-split benchmark: paper-comparable corrected event-wise numbers ==="
+python scripts/run_benchmark.py --mission "$MISSION" --protocol paper-split --models GlobalSTD,PCAReconstructor,SubsystemPCAEnsemble,WindowedIsolationForest,HalfSpaceTrees,Autoencoder --tag "P0: paper-split, event-calibrated + postprocessing"
+python scripts/run_benchmark.py --mission "$MISSION" --protocol paper-split --models LaggedRidgeForecaster,NearestNominalWindow --tag "P3: new lightweight models, paper split"
+
+echo ""
+echo "=== P1: Autoencoder online + replay buffer ==="
+python scripts/run_benchmark.py --mission "$MISSION" --models Autoencoder-replay --variants online --ae-online-epochs 20 --ae-online-lr 0.0005 --tag "P1: AE online + replay 50k rows + 20 epochs/fold, lr 5e-4"
+
+echo ""
+echo "=== P2: retraining cadence -- fixed sweeps + drift-adaptive prequential ==="
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --variants online --step-weeks 1 --tag "P2: cadence sweep 1w"
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --variants online --step-weeks 2 --tag "P2: cadence sweep 2w"
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --variants online --step-months 2 --tag "P2: cadence sweep 2mo"
+python scripts/run_cadence.py --mission "$MISSION" --model PCAReconstructor --tag "P2: adaptive cadence PCA"
+python scripts/run_cadence.py --mission "$MISSION" --model GlobalSTD --tag "P2: adaptive cadence GlobalSTD"
+
+echo ""
+echo "=== Supervision ladder: how much do labels buy? (L0 = event-calibrated runs above) ==="
+# L1: threshold chosen WITHOUT labels (alarm budget + time-fraction cap); fit still label-filtered.
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster,NearestNominalWindow --variants online --calibration budget --alarm-budget 20 --tag "Supervision L1: unsupervised threshold (budget 20/mo), label-filtered fit"
+# L2: FULLY unsupervised -- labels only ever touch the final evaluation.
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster,NearestNominalWindow --variants online --calibration budget --alarm-budget 20 --fit-on-all-rows --tag "Supervision L2: fully unsupervised (budget 20/mo, unfiltered fit), labels only for evaluation"
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster,NearestNominalWindow --variants online --calibration budget --alarm-budget 50 --fit-on-all-rows --tag "Supervision L2: fully unsupervised (budget 50/mo, unfiltered fit), labels only for evaluation"
+
+echo ""
+echo "=== P4: channel_15 exclusion + telecommand features A/Bs ==="
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor --variants online --exclude-channels channel_15 --tag "P4 A/B: without channel_15"
+python scripts/build_telecommand_features.py --mission "$MISSION"
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --variants online --with-telecommands --tag "P4 A/B: with telecommand features"
+
+echo ""
+echo "=== Channel-aware evaluation: per-channel thresholds/alarms (paper's hierarchy flavor) ==="
+python scripts/run_benchmark.py --mission "$MISSION" --protocol channel-aware --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --tag "Channel-aware: per-channel thresholds, 6-fold calib buffer"
+
+echo ""
+echo "=== Postprocess-constant robustness (one-at-a-time around gap=100/dur=10 defaults) ==="
+for gap in 0 25 50 200 400; do
+  python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD --variants online --merge-gap-rows "$gap" --tag "Robustness: merge_gap=$gap (min_dur=10)"
+done
+for dur in 1 3 30 100; do
+  python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD --variants online --min-duration-rows "$dur" --tag "Robustness: min_dur=$dur (merge_gap=100)"
+done
+
+echo ""
+echo "=== Triad ablation + per-fold rigor reruns + multi-seed + cold-start warmup ==="
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --variants online --merge-gap-rows 0 --min-duration-rows 1 --smooth-alphas none --tag "Ablation: event-cal WITHOUT postprocessing"
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --variants online --calibration row --merge-gap-rows 0 --min-duration-rows 1 --smooth-alphas none --tag "Ablation: row-cal WITHOUT postprocessing (legacy baseline)"
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --tag "Rigor rerun: event-cal refit/online/hybrid with per-fold logging"
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,PCAReconstructor,LaggedRidgeForecaster --variants online --calibration row --tag "Rigor rerun: row-cal online with per-fold logging"
+for seed in 7 123; do
+  python scripts/run_benchmark.py --mission "$MISSION" --models Autoencoder-replay --variants online --ae-online-epochs 20 --ae-online-lr 0.0005 --ae-seed "$seed" --tag "Multi-seed: AE-replay online, seed=$seed"
+done
+python scripts/run_benchmark.py --mission "$MISSION" --models GlobalSTD,LaggedRidgeForecaster,NearestNominalWindow --variants online --calibration budget --alarm-budget 10 --fit-on-all-rows --warmup-folds 2 --tag "Cold-start: L2 budget 10/mo with 2-fold warmup"
+
+echo ""
+echo "=== Statistical analysis over everything above ==="
+python scripts/analyze_paper_stats.py --mission "$MISSION"
+
+# ---------------------------------------------------------------------------------
+# LEGACY experiments (pre-run_benchmark methodology; window-level metrics,
+# row-level-calibrated thresholds). Kept for provenance of the older logged results.
+# ---------------------------------------------------------------------------------
+
 echo "=== Step 4/2/3: PCAReconstructor, WindowedIsolationForest, SubsystemPCAEnsemble, Autoencoder ==="
 python scripts/run_experiments.py --mission "$MISSION" --ae-epochs 30
 
