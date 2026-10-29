@@ -15,3 +15,5 @@ dist/
 mlflow.db
 mlruns/
 data/experiments/plots/
+
+logs/
