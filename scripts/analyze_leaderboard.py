@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""Authoritative L2 anomalies-only leaderboard, with uncertainty, built purely from
+`data/experiments/results.jsonl` (no model is re-run).
+
+Why this exists: the headline metric (macro F0.5 over the ~15 folds that contain a real
+anomaly) is noisy, and "best budget per model" is picked by looking at the labels, which
+is not L2 any more. So this reports, per model:
+
+- `mean_over_budgets`: macro F0.5 averaged over the alarm budgets 5/10/20/50 per month.
+  No label-based selection, so this is the number a day-1 operator could actually expect.
+- a 95% fold-level bootstrap CI for it (folds resampled with replacement, the SAME
+  resample for every model, so differences between models are paired).
+- `best_budget`: the old label-selected number, kept for comparison with earlier tables.
+- operational load at the best budget: alarms per month and alarms per detected anomaly.
+- paired P(model > reference) from the same bootstrap draws.
+
+Usage: scripts/analyze_leaderboard.py [--mission 2] [--reference TCopulaDetector]
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parent.parent
+BUDGETS = (5.0, 10.0, 20.0, 50.0)
+
+
+def load_runs(mission: int) -> dict[tuple[str, float], dict]:
+    """Latest FULL L2 run (>=40 folds, per-fold anomalies-only fields present) per
+    (model, budget). Partial runs (4-6 folds) are smoke tests and must never be mixed in."""
+    runs: dict[tuple[str, float], dict] = {}
+    for line in (ROOT / "data/experiments/results.jsonl").read_text().splitlines():
+        x = json.loads(line)
+        c, m = x["config"], x["metrics"]
+        if x["mission"] != mission or c.get("calibration") != "budget" or not c.get("fit_on_all_rows"):
+            continue
+        if m.get("n_folds", 0) < 40 or "folds" not in m or "f_beta_anomalies_only" not in m["folds"][0]:
+            continue
+        name = x["model_name"].removesuffix("-online")
+        # The first CUSUM wrapper standardized with an in-sample reference and degenerated into one
+        # month-long alarm (invalid). The fixed version records `cusum_ref`; drop the older rows.
+        if name.startswith("CUSUM-") and "cusum_ref" not in c:
+            continue
+        key = (name, float(c["alarm_budget"]))
+        if key not in runs or x["timestamp"] > runs[key]["timestamp"]:
+            runs[key] = x
+    return runs
+
+
+def bootstrap_table(runs: dict, n_boot: int, seed: int) -> dict:
+    models = sorted({k[0] for k in runs})
+    out: dict[str, dict] = {}
+    # Anomaly-bearing folds are identical across models (same walk), take them from any run.
+    ref_folds = next(iter(runs.values()))["metrics"]["folds"]
+    idx = np.array([i for i, f in enumerate(ref_folds) if f["n_events_anomalies_only"] > 0])
+    rng = np.random.default_rng(seed)
+    draws = rng.integers(0, len(idx), size=(n_boot, len(idx)))  # shared across models -> paired
+    per_model_boot: dict[str, np.ndarray] = {}
+
+    for name in models:
+        budgets = [b for b in BUDGETS if (name, b) in runs]
+        if not budgets:
+            continue
+        fold_f = np.array([
+            [runs[(name, b)]["metrics"]["folds"][i]["f_beta_anomalies_only"] for i in idx] for b in budgets
+        ])  # (n_budgets, n_anom_folds)
+        macro_by_budget = fold_f.mean(axis=1)
+        best_j = int(macro_by_budget.argmax())
+        best_run = runs[(name, budgets[best_j])]["metrics"]
+        pooled = best_run["pooled_event_wise_corrected_anomalies_only"]
+        months = max(len(best_run["folds"]), 1)
+        mean_f = fold_f.mean(axis=0)  # budget-averaged per-fold F0.5
+        boot = mean_f[draws].mean(axis=1)
+        per_model_boot[name] = boot
+        out[name] = {
+            "n_budgets": len(budgets),
+            "mean_over_budgets": float(mean_f.mean()),
+            "ci95": [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))],
+            "best_budget": float(budgets[best_j]),
+            "best_budget_macro": float(macro_by_budget[best_j]),
+            "pooled_f05": pooled["f_beta"],
+            "recall": pooled["recall"],
+            "precision": pooled["precision"],
+            "alarms_per_month": pooled["n_detections"] / months,
+            "alarm_time_fraction": 1.0 - pooled["tnr_t"],
+            "alarms_per_detected_anomaly": pooled["n_detections"] / max(pooled["n_events_detected"], 1),
+            "anomalies_detected": f"{pooled['n_events_detected']}/{pooled['n_events']}",
+        }
+    return {"models": out, "boot": per_model_boot, "n_anomaly_folds": int(len(idx))}
+
+
+def render(table: dict, reference: str) -> str:
+    models, boot = table["models"], table["boot"]
+    ref = boot.get(reference)
+    order = sorted(models, key=lambda n: -models[n]["mean_over_budgets"])
+    lines = [
+        "# L2 anomalies-only leaderboard (Mission 2)",
+        "",
+        f"Generated by `scripts/analyze_leaderboard.py` from `data/experiments/results.jsonl`. Full runs only "
+        f"(>=40 folds); latest run per (model, budget). Macro F0.5 over the {table['n_anomaly_folds']} folds that contain "
+        f"a real anomaly. CI = 95% paired fold bootstrap. **Rank by `mean over budgets`**: it needs no labels to pick "
+        f"a budget. `best budget` is the older label-selected number, an optimistic upper bound.",
+        "",
+        "`% time in alarm` > 10% (⚠) marks a degenerate flood-the-timeline detector: the event-wise metric lets it score well "
+        "while being operationally useless, so read such rows with suspicion.",
+        "",
+        f"`P(>{reference})` is the share of bootstrap draws in which the model beats the reference.",
+        "",
+        "| Model | mean over budgets [95% CI] | best budget (oracle) | alarms/mo | % time in alarm | alarms per detected anomaly | recall | precision | "
+        f"P(>{reference}) |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+    for n in order:
+        s = models[n]
+        p = "-" if ref is None or n == reference else f"{float(np.mean(boot[n] > ref)):.2f}"
+        lines.append(
+            f"| `{n}` | {s['mean_over_budgets']:.3f} [{s['ci95'][0]:.3f}, {s['ci95'][1]:.3f}]"
+            f"{'' if s['n_budgets'] == 4 else f' ({s['n_budgets']} budgets)'} | "
+            f"{s['best_budget_macro']:.3f} @ {int(s['best_budget'])}/mo | {s['alarms_per_month']:.0f} | {100 * s['alarm_time_fraction']:.1f}%{' ⚠' if s['alarm_time_fraction'] > 0.1 else ''} | "
+            f"{s['alarms_per_detected_anomaly']:.0f} | {s['recall']:.2f} | {s['precision']:.3f} | {p} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--mission", type=int, default=2)
+    ap.add_argument("--reference", default="TCopulaDetector")
+    ap.add_argument("--n-boot", type=int, default=5000)
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--out-md", type=Path, default=ROOT / "docs/leaderboard.md")
+    ap.add_argument("--out-json", type=Path, default=ROOT / "data/experiments/leaderboard_bootstrap.json")
+    args = ap.parse_args()
+
+    runs = load_runs(args.mission)
+    table = bootstrap_table(runs, args.n_boot, args.seed)
+    md = render(table, args.reference)
+    args.out_md.write_text(md)
+    args.out_json.write_text(json.dumps({"mission": args.mission, "n_anomaly_folds": table["n_anomaly_folds"], "models": table["models"]}, indent=2))
+    print(md)
+
+
+if __name__ == "__main__":
+    main()
