@@ -1,0 +1,118 @@
+{
+  "models": [
+    "DynamicFactorModel",
+    "GaussianCopulaDetector"
+  ],
+  "budgets": [
+    5.0,
+    10.0,
+    20.0,
+    50.0
+  ],
+  "results": [
+    {
+      "model": "DynamicFactorModel",
+      "budget": 5.0,
+      "f_beta_all": 0.6726068079630322,
+      "recall_all": 0.2984517304189435,
+      "precision_all": 0.979638694967069,
+      "f_beta_anomalies": 0.012351791274885147,
+      "recall_anomalies": 0.12903225806451613,
+      "precision_anomalies": 0.010074308440302944,
+      "macro_f0.5_all": 0.5272204476406698,
+      "macro_f0.5_anomalies_only": 0.03500203692150617,
+      "n_detections": 197
+    },
+    {
+      "model": "GaussianCopulaDetector",
+      "budget": 5.0,
+      "f_beta_all": 0.30467064565083085,
+      "recall_all": 0.5653005464480875,
+      "precision_all": 0.27318310904041476,
+      "f_beta_anomalies": 0.05410510618119132,
+      "recall_anomalies": 0.45161290322580644,
+      "precision_anomalies": 0.04434666804032767,
+      "macro_f0.5_all": 0.315693863535847,
+      "macro_f0.5_anomalies_only": 0.15178832317067933,
+      "n_detections": 470
+    },
+    {
+      "model": "DynamicFactorModel",
+      "budget": 10.0,
+      "f_beta_all": 0.7484688898232009,
+      "recall_all": 0.5334244080145719,
+      "precision_all": 0.8323579995046284,
+      "f_beta_anomalies": 0.03812009316221199,
+      "recall_anomalies": 0.12903225806451613,
+      "precision_anomalies": 0.032411122812480236,
+      "macro_f0.5_all": 0.7076355664905574,
+      "macro_f0.5_anomalies_only": 0.05196175775839651,
+      "n_detections": 427
+    },
+    {
+      "model": "GaussianCopulaDetector",
+      "budget": 10.0,
+      "f_beta_all": 0.26953938287907164,
+      "recall_all": 0.6908014571948998,
+      "precision_all": 0.2338829646023875,
+      "f_beta_anomalies": 0.030834602698469986,
+      "recall_anomalies": 0.46774193548387094,
+      "precision_anomalies": 0.024997257267580345,
+      "macro_f0.5_all": 0.31229342331498805,
+      "macro_f0.5_anomalies_only": 0.12757954665876933,
+      "n_detections": 557
+    },
+    {
+      "model": "DynamicFactorModel",
+      "budget": 20.0,
+      "f_beta_all": 0.6441841147776206,
+      "recall_all": 0.6385245901639345,
+      "precision_all": 0.6456147066371418,
+      "f_beta_anomalies": 0.027131284026620114,
+      "recall_anomalies": 0.15591397849462366,
+      "precision_anomalies": 0.022487662843306947,
+      "macro_f0.5_all": 0.6562467539335332,
+      "macro_f0.5_anomalies_only": 0.05321187121137525,
+      "n_detections": 657
+    },
+    {
+      "model": "GaussianCopulaDetector",
+      "budget": 20.0,
+      "f_beta_all": 0.16964080859012182,
+      "recall_all": 0.727959927140255,
+      "precision_all": 0.1423470415203833,
+      "f_beta_anomalies": 0.017648653918308995,
+      "recall_anomalies": 0.553763440860215,
+      "precision_anomalies": 0.01420949555270858,
+      "macro_f0.5_all": 0.2648067387621076,
+      "macro_f0.5_anomalies_only": 0.13207168158088517,
+      "n_detections": 823
+    },
+    {
+      "model": "DynamicFactorModel",
+      "budget": 50.0,
+      "f_beta_all": 0.4708773078191539,
+      "recall_all": 0.716120218579235,
+      "precision_all": 0.43374239502252426,
+      "f_beta_anomalies": 0.018680761077043397,
+      "recall_anomalies": 0.15591397849462366,
+      "precision_anomalies": 0.01531151733228383,
+      "macro_f0.5_all": 0.5323887872885186,
+      "macro_f0.5_anomalies_only": 0.05420586190643798,
+      "n_detections": 1074
+    },
+    {
+      "model": "GaussianCopulaDetector",
+      "budget": 50.0,
+      "f_beta_all": 0.15590199937938062,
+      "recall_all": 0.7459016393442623,
+      "precision_all": 0.13016269895728694,
+      "f_beta_anomalies": 0.01855404673766292,
+      "recall_anomalies": 0.553763440860215,
+      "precision_anomalies": 0.01494337403324295,
+      "macro_f0.5_all": 0.24892434477921047,
+      "macro_f0.5_anomalies_only": 0.13242947675672617,
+      "n_detections": 894
+    }
+  ]
+}

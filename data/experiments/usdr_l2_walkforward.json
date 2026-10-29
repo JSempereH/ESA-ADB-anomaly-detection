@@ -1,0 +1,110 @@
+{
+  "models": [
+    "SubsystemPCAEnsemble",
+    "USDR-SubsystemPCAEnsemble"
+  ],
+  "budgets": [
+    5.0,
+    10.0,
+    20.0,
+    50.0
+  ],
+  "results": [
+    {
+      "model": "SubsystemPCAEnsemble",
+      "budget": 5.0,
+      "run_id": "07cc18ae8268",
+      "f_beta_all": 0.5044955305739199,
+      "recall_all": 0.27877959927140256,
+      "precision_all": 0.6325283198929696,
+      "f_beta_anomalies": 0.10070988361006128,
+      "recall_anomalies": 0.17204301075268819,
+      "precision_anomalies": 0.09125115809457218,
+      "n_detections": 322
+    },
+    {
+      "model": "SubsystemPCAEnsemble",
+      "budget": 10.0,
+      "run_id": "bdfb4fd7006d",
+      "f_beta_all": 0.49223940863536003,
+      "recall_all": 0.569216757741348,
+      "precision_all": 0.47614179185021804,
+      "f_beta_anomalies": 0.04942908268293006,
+      "recall_anomalies": 0.26881720430107525,
+      "precision_anomalies": 0.04105299997102701,
+      "n_detections": 756
+    },
+    {
+      "model": "SubsystemPCAEnsemble",
+      "budget": 20.0,
+      "run_id": "de308dc9ad5f",
+      "f_beta_all": 0.39100812421230013,
+      "recall_all": 0.7024590163934427,
+      "precision_all": 0.35199222122605567,
+      "f_beta_anomalies": 0.014169475002021141,
+      "recall_anomalies": 0.27956989247311825,
+      "precision_anomalies": 0.011451661190138228,
+      "n_detections": 1183
+    },
+    {
+      "model": "SubsystemPCAEnsemble",
+      "budget": 50.0,
+      "run_id": "d3004a42419f",
+      "f_beta_all": 0.3033746325239659,
+      "recall_all": 0.7910746812386157,
+      "precision_all": 0.26286097624141525,
+      "f_beta_anomalies": 0.00834469941128794,
+      "recall_anomalies": 0.3010752688172043,
+      "precision_anomalies": 0.006712971305287695,
+      "n_detections": 1654
+    },
+    {
+      "model": "USDR-SubsystemPCAEnsemble",
+      "budget": 5.0,
+      "run_id": "e408e6434b24",
+      "f_beta_all": 0.5880239464708269,
+      "recall_all": 0.3016393442622951,
+      "precision_all": 0.7710341469500811,
+      "f_beta_anomalies": 0.009938616109727176,
+      "recall_anomalies": 0.12365591397849462,
+      "precision_anomalies": 0.008080788584676485,
+      "n_detections": 245
+    },
+    {
+      "model": "USDR-SubsystemPCAEnsemble",
+      "budget": 10.0,
+      "run_id": "a8bff4e07870",
+      "f_beta_all": 0.6586776938977761,
+      "recall_all": 0.6145719489981785,
+      "precision_all": 0.6707113639869711,
+      "f_beta_anomalies": 0.016699129655362726,
+      "recall_anomalies": 0.1935483870967742,
+      "precision_anomalies": 0.013593876493917459,
+      "n_detections": 564
+    },
+    {
+      "model": "USDR-SubsystemPCAEnsemble",
+      "budget": 20.0,
+      "run_id": "1390a9c82649",
+      "f_beta_all": 0.48765167121920266,
+      "recall_all": 0.7900728597449909,
+      "precision_all": 0.4450618828477294,
+      "f_beta_anomalies": 0.010939186970135586,
+      "recall_anomalies": 0.3225806451612903,
+      "precision_anomalies": 0.00881110912559474,
+      "n_detections": 1025
+    },
+    {
+      "model": "USDR-SubsystemPCAEnsemble",
+      "budget": 50.0,
+      "run_id": "3bc6f2bcc582",
+      "f_beta_all": 0.3675034005535833,
+      "recall_all": 0.8841530054644808,
+      "precision_all": 0.32065952414415916,
+      "f_beta_anomalies": 0.008438460547261318,
+      "recall_anomalies": 0.34946236559139787,
+      "precision_anomalies": 0.006783528783785833,
+      "n_detections": 1545
+    }
+  ]
+}

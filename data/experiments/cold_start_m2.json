@@ -1,0 +1,1350 @@
+{
+  "mission": 2,
+  "budget": 20.0,
+  "results": [
+    {
+      "model": "TCopulaDetector",
+      "history_months": 1,
+      "n_folds": 7,
+      "macro_f05": 0.11820840537607835,
+      "recall": 0.5074626865671642,
+      "alarms_per_month": 11.0,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5588773893541286,
+          "recall": 0.8571428571428571,
+          "n_det": 19,
+          "n_events": 28,
+          "n_hit": 24
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 6,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.17218850863136542,
+          "recall": 1.0,
+          "n_det": 3,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 16,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.09639293964705437,
+          "recall": 1.0,
+          "n_det": 11,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 7,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "TCopulaDetector",
+      "history_months": 2,
+      "n_folds": 7,
+      "macro_f05": 0.11820840537607835,
+      "recall": 0.5074626865671642,
+      "alarms_per_month": 11.0,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5588773893541286,
+          "recall": 0.8571428571428571,
+          "n_det": 19,
+          "n_events": 28,
+          "n_hit": 24
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 6,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.17218850863136542,
+          "recall": 1.0,
+          "n_det": 3,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 16,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.09639293964705437,
+          "recall": 1.0,
+          "n_det": 11,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 7,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "TCopulaDetector",
+      "history_months": 3,
+      "n_folds": 7,
+      "macro_f05": 0.11820840537607835,
+      "recall": 0.5074626865671642,
+      "alarms_per_month": 11.0,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5588773893541286,
+          "recall": 0.8571428571428571,
+          "n_det": 19,
+          "n_events": 28,
+          "n_hit": 24
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 6,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.17218850863136542,
+          "recall": 1.0,
+          "n_det": 3,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 16,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.09639293964705437,
+          "recall": 1.0,
+          "n_det": 11,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 7,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "TCopulaDetector",
+      "history_months": 6,
+      "n_folds": 7,
+      "macro_f05": 0.11820840537607835,
+      "recall": 0.5074626865671642,
+      "alarms_per_month": 11.0,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5588773893541286,
+          "recall": 0.8571428571428571,
+          "n_det": 19,
+          "n_events": 28,
+          "n_hit": 24
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 6,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.17218850863136542,
+          "recall": 1.0,
+          "n_det": 3,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 16,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.09639293964705437,
+          "recall": 1.0,
+          "n_det": 11,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 7,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "TCopulaDetector",
+      "history_months": 12,
+      "n_folds": 7,
+      "macro_f05": 0.11820840537607835,
+      "recall": 0.5074626865671642,
+      "alarms_per_month": 11.0,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5588773893541286,
+          "recall": 0.8571428571428571,
+          "n_det": 19,
+          "n_events": 28,
+          "n_hit": 24
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 6,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.17218850863136542,
+          "recall": 1.0,
+          "n_det": 3,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 16,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.09639293964705437,
+          "recall": 1.0,
+          "n_det": 11,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 7,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "TCopulaDetector",
+      "history_months": "all",
+      "n_folds": 7,
+      "macro_f05": 0.11820840537607835
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "history_months": 1,
+      "n_folds": 7,
+      "macro_f05": 0.08006233876982242,
+      "recall": 0.3582089552238806,
+      "alarms_per_month": 17.714285714285715,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.39236342366464655,
+          "recall": 0.2857142857142857,
+          "n_det": 16,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 16,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 23,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 5,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.1680729477241105,
+          "recall": 1.0,
+          "n_det": 35,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 17,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "history_months": 2,
+      "n_folds": 7,
+      "macro_f05": 0.06523162461129185,
+      "recall": 0.373134328358209,
+      "alarms_per_month": 16.285714285714285,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.32093545608620977,
+          "recall": 0.2857142857142857,
+          "n_det": 12,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 10,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 28,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 8,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.041876077747127614,
+          "recall": 1.0,
+          "n_det": 29,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.09380983844570555,
+          "recall": 1.0,
+          "n_det": 13,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 14,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "history_months": 3,
+      "n_folds": 7,
+      "macro_f05": 0.05520795463542744,
+      "recall": 0.3880597014925373,
+      "alarms_per_month": 15.285714285714286,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.1478923818941815,
+          "recall": 0.2857142857142857,
+          "n_det": 15,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 11,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 27,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 7,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.08126697407920278,
+          "recall": 1.0,
+          "n_det": 15,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.09387915005341238,
+          "recall": 1.0,
+          "n_det": 13,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0634171764211955,
+          "recall": 1.0,
+          "n_det": 19,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "history_months": 6,
+      "n_folds": 7,
+      "macro_f05": 0.05894422312044869,
+      "recall": 0.373134328358209,
+      "alarms_per_month": 25.428571428571427,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.22982095426347693,
+          "recall": 0.2857142857142857,
+          "n_det": 18,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 13,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 25,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 9,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.08139400898771043,
+          "recall": 1.0,
+          "n_det": 15,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.10139459859195347,
+          "recall": 1.0,
+          "n_det": 78,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 20,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "history_months": 12,
+      "n_folds": 7,
+      "macro_f05": 0.08026425433035696,
+      "recall": 0.373134328358209,
+      "alarms_per_month": 16.142857142857142,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.40908807514859313,
+          "recall": 0.2857142857142857,
+          "n_det": 13,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 25,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 9,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.07154970412994413,
+          "recall": 1.0,
+          "n_det": 17,
+          "n_events": 1,
+          "n_hit": 1
+        },
+        {
+          "fold": 31,
+          "f": 0.0812120010339614,
+          "recall": 1.0,
+          "n_det": 15,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 22,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "history_months": "all",
+      "n_folds": 7,
+      "macro_f05": 0.06935670547551608
+    },
+    {
+      "model": "PyOD-ECOD",
+      "history_months": 1,
+      "n_folds": 7,
+      "macro_f05": 0.09214928292058701,
+      "recall": 0.13432835820895522,
+      "alarms_per_month": 12.0,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5526378402845885,
+          "recall": 0.2857142857142857,
+          "n_det": 22,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0924071401595206,
+          "recall": 0.1,
+          "n_det": 11,
+          "n_events": 10,
+          "n_hit": 1
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 20,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 10,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 4,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 2,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "PyOD-ECOD",
+      "history_months": 2,
+      "n_folds": 7,
+      "macro_f05": 0.09223031750096353,
+      "recall": 0.13432835820895522,
+      "alarms_per_month": 14.142857142857142,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5581669260417109,
+          "recall": 0.2857142857142857,
+          "n_det": 23,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 14,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 17,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 10,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 6,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.08744529646503371,
+          "recall": 1.0,
+          "n_det": 14,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "PyOD-ECOD",
+      "history_months": 3,
+      "n_folds": 7,
+      "macro_f05": 0.08769407277350012,
+      "recall": 0.14925373134328357,
+      "alarms_per_month": 17.0,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.48875641846050966,
+          "recall": 0.2857142857142857,
+          "n_det": 20,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0529211765179254,
+          "recall": 0.1,
+          "n_det": 21,
+          "n_events": 10,
+          "n_hit": 1
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 21,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 14,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 11,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 15,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.07218091443606574,
+          "recall": 1.0,
+          "n_det": 17,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "PyOD-ECOD",
+      "history_months": 6,
+      "n_folds": 7,
+      "macro_f05": 0.09226611567709285,
+      "recall": 0.14925373134328357,
+      "alarms_per_month": 18.285714285714285,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.532247325956999,
+          "recall": 0.2857142857142857,
+          "n_det": 19,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.036974538716183475,
+          "recall": 0.1,
+          "n_det": 31,
+          "n_events": 10,
+          "n_hit": 1
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 22,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 16,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.07664094506646747,
+          "recall": 1.0,
+          "n_det": 16,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "PyOD-ECOD",
+      "history_months": 12,
+      "n_folds": 7,
+      "macro_f05": 0.08680371701646475,
+      "recall": 0.14925373134328357,
+      "alarms_per_month": 23.714285714285715,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5233835699068314,
+          "recall": 0.2857142857142857,
+          "n_det": 21,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.036973838490054714,
+          "recall": 0.1,
+          "n_det": 31,
+          "n_events": 10,
+          "n_hit": 1
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 51,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 13,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 16,
+          "n_hit": 0
+        },
+        {
+          "fold": 37,
+          "f": 0.047268610718367035,
+          "recall": 1.0,
+          "n_det": 26,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "PyOD-ECOD",
+      "history_months": "all",
+      "n_folds": 7,
+      "macro_f05": 0.08632448300518439
+    },
+    {
+      "model": "VARMahalanobis",
+      "history_months": 1,
+      "n_folds": 7,
+      "macro_f05": 0.10297182876187239,
+      "recall": 0.5074626865671642,
+      "alarms_per_month": 10.285714285714286,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5900249647830879,
+          "recall": 0.2857142857142857,
+          "n_det": 31,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 5,
+          "n_events": 10,
+          "n_hit": 0
+        },
+        {
+          "fold": 22,
+          "f": 0.0429330900594507,
+          "recall": 1.0,
+          "n_det": 10,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 11,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.0016461956687962263,
+          "recall": 1.0,
+          "n_det": 1,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.08619855082177193,
+          "recall": 1.0,
+          "n_det": 2,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "VARMahalanobis",
+      "history_months": 2,
+      "n_folds": 7,
+      "macro_f05": 0.10773426733105317,
+      "recall": 0.6268656716417911,
+      "alarms_per_month": 13.571428571428571,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5341012543349944,
+          "recall": 0.2857142857142857,
+          "n_det": 19,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.10968769734091223,
+          "recall": 0.8,
+          "n_det": 11,
+          "n_events": 10,
+          "n_hit": 8
+        },
+        {
+          "fold": 22,
+          "f": 0.07163577312025049,
+          "recall": 1.0,
+          "n_det": 6,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 13,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.03471965723572431,
+          "recall": 1.0,
+          "n_det": 6,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0039954892854906585,
+          "recall": 1.0,
+          "n_det": 28,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "VARMahalanobis",
+      "history_months": 3,
+      "n_folds": 7,
+      "macro_f05": 0.04839444290682917,
+      "recall": 0.6119402985074627,
+      "alarms_per_month": 31.857142857142858,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.15798056888758213,
+          "recall": 0.2857142857142857,
+          "n_det": 7,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.10970873804514521,
+          "recall": 0.8,
+          "n_det": 11,
+          "n_events": 10,
+          "n_hit": 8
+        },
+        {
+          "fold": 22,
+          "f": 0.0075351225278235704,
+          "recall": 0.8888888888888888,
+          "n_det": 125,
+          "n_events": 9,
+          "n_hit": 8
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 26,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.061147093157617155,
+          "recall": 1.0,
+          "n_det": 3,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0023895777296361756,
+          "recall": 1.0,
+          "n_det": 39,
+          "n_events": 1,
+          "n_hit": 1
+        }
+      ]
+    },
+    {
+      "model": "VARMahalanobis",
+      "history_months": 6,
+      "n_folds": 7,
+      "macro_f05": 0.12728811260661818,
+      "recall": 0.6119402985074627,
+      "alarms_per_month": 21.571428571428573,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.3692162357728542,
+          "recall": 0.2857142857142857,
+          "n_det": 10,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.10964924305199257,
+          "recall": 0.8,
+          "n_det": 11,
+          "n_events": 10,
+          "n_hit": 8
+        },
+        {
+          "fold": 22,
+          "f": 0.07159761661105628,
+          "recall": 1.0,
+          "n_det": 6,
+          "n_events": 9,
+          "n_hit": 9
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 26,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.34055369281042436,
+          "recall": 1.0,
+          "n_det": 43,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 43,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "VARMahalanobis",
+      "history_months": 12,
+      "n_folds": 7,
+      "macro_f05": 0.09214790182987541,
+      "recall": 0.47761194029850745,
+      "alarms_per_month": 26.857142857142858,
+      "per_fold": [
+        {
+          "fold": 11,
+          "f": 0.5150379078424047,
+          "recall": 0.2857142857142857,
+          "n_det": 17,
+          "n_events": 28,
+          "n_hit": 8
+        },
+        {
+          "fold": 13,
+          "f": 0.10964851749206435,
+          "recall": 0.8,
+          "n_det": 11,
+          "n_events": 10,
+          "n_hit": 8
+        },
+        {
+          "fold": 22,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 19,
+          "n_events": 9,
+          "n_hit": 0
+        },
+        {
+          "fold": 24,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 12,
+          "n_events": 2,
+          "n_hit": 0
+        },
+        {
+          "fold": 27,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 26,
+          "n_events": 1,
+          "n_hit": 0
+        },
+        {
+          "fold": 31,
+          "f": 0.02034888747465878,
+          "recall": 1.0,
+          "n_det": 51,
+          "n_events": 16,
+          "n_hit": 16
+        },
+        {
+          "fold": 37,
+          "f": 0.0,
+          "recall": 0.0,
+          "n_det": 52,
+          "n_events": 1,
+          "n_hit": 0
+        }
+      ]
+    },
+    {
+      "model": "VARMahalanobis",
+      "history_months": "all",
+      "n_folds": 7,
+      "macro_f05": 0.10011143636575305
+    }
+  ]
+}

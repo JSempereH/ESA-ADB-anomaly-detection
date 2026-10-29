@@ -1,0 +1,822 @@
+{
+  "mission": 2,
+  "n_anomaly_folds": 15,
+  "models": {
+    "ADDAEILForest": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.07745156535800167,
+      "ci95": [
+        0.006559945661721866,
+        0.1775148263125677
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.08891636821332101,
+      "pooled_f05": 0.0426858433660109,
+      "recall": 0.23118279569892472,
+      "precision": 0.03545807833892273,
+      "alarms_per_month": 32.4390243902439,
+      "alarm_time_fraction": 0.017515746025682843,
+      "alarms_per_detected_anomaly": 30.930232558139537,
+      "anomalies_detected": "43/186"
+    },
+    "AnomalyTransformerLite": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.018117827272301292,
+      "ci95": [
+        0.0023618538003996304,
+        0.046512880017477595
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.023261805437325513,
+      "pooled_f05": 0.003858351325574889,
+      "recall": 0.3387096774193548,
+      "precision": 0.003093729394597608,
+      "alarms_per_month": 45.926829268292686,
+      "alarm_time_fraction": 0.41745075499727047,
+      "alarms_per_detected_anomaly": 29.88888888888889,
+      "anomalies_detected": "63/186"
+    },
+    "Autoencoder": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.025984055058304204,
+      "ci95": [
+        0.002956429484597385,
+        0.06379672587101215
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.05692559957313558,
+      "pooled_f05": 0.08383748806977465,
+      "recall": 0.11290322580645161,
+      "precision": 0.07876799208414369,
+      "alarms_per_month": 5.341463414634147,
+      "alarm_time_fraction": 0.09209524913539635,
+      "alarms_per_detected_anomaly": 10.428571428571429,
+      "anomalies_detected": "21/186"
+    },
+    "Autoencoder-multiseed": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.009974353590039974,
+      "ci95": [
+        0.0017049976936406555,
+        0.021698347813893435
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.01498679700287135,
+      "pooled_f05": 0.008799886871683892,
+      "recall": 0.3924731182795699,
+      "precision": 0.007071620950419828,
+      "alarms_per_month": 13.75609756097561,
+      "alarm_time_fraction": 0.5014507229954022,
+      "alarms_per_detected_anomaly": 7.726027397260274,
+      "anomalies_detected": "73/186"
+    },
+    "CRTFAutoencoder": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.0376073002252849,
+      "ci95": [
+        0.011856738654329372,
+        0.07432018521976556
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.04824298953831255,
+      "pooled_f05": 0.02400967016489584,
+      "recall": 0.553763440860215,
+      "precision": 0.0193757520687014,
+      "alarms_per_month": 14.75609756097561,
+      "alarm_time_fraction": 0.49033347819285444,
+      "alarms_per_detected_anomaly": 5.87378640776699,
+      "anomalies_detected": "103/186"
+    },
+    "CRTFAutoencoder-multiseed": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.047095166402981274,
+      "ci95": [
+        0.008353975398196085,
+        0.11374896231121405
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.06337363445292453,
+      "pooled_f05": 0.05759462183859413,
+      "recall": 0.41935483870967744,
+      "precision": 0.04737706023882392,
+      "alarms_per_month": 10.24390243902439,
+      "alarm_time_fraction": 0.35811724837722436,
+      "alarms_per_detected_anomaly": 5.384615384615385,
+      "anomalies_detected": "78/186"
+    },
+    "CRTFFull": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.03269416755103905,
+      "ci95": [
+        0.004685645555518272,
+        0.07882827975039047
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.03984381230509185,
+      "pooled_f05": 0.01848448969339647,
+      "recall": 0.3279569892473118,
+      "precision": 0.014956185482225909,
+      "alarms_per_month": 16.658536585365855,
+      "alarm_time_fraction": 0.07135684687633681,
+      "alarms_per_detected_anomaly": 11.19672131147541,
+      "anomalies_detected": "61/186"
+    },
+    "CUSUM-KalmanLocalTrend": {
+      "n_budgets": 2,
+      "mean_over_budgets": 0.17174607953436138,
+      "ci95": [
+        0.039519105776582436,
+        0.3436561452667821
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.17450369779588995,
+      "pooled_f05": 0.07130376015962282,
+      "recall": 0.5,
+      "precision": 0.05871772598808748,
+      "alarms_per_month": 1.951219512195122,
+      "alarm_time_fraction": 0.41282274011912523,
+      "alarms_per_detected_anomaly": 0.8602150537634409,
+      "anomalies_detected": "93/186"
+    },
+    "CUSUM-PyOD-ECOD": {
+      "n_budgets": 2,
+      "mean_over_budgets": 0.22199169319081025,
+      "ci95": [
+        0.08962270640873105,
+        0.3752957248425685
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.22352329877736896,
+      "pooled_f05": 0.07680676841290639,
+      "recall": 0.3924731182795699,
+      "precision": 0.06394834578805576,
+      "alarms_per_month": 1.7560975609756098,
+      "alarm_time_fraction": 0.5814290093872714,
+      "alarms_per_detected_anomaly": 0.9863013698630136,
+      "anomalies_detected": "73/186"
+    },
+    "CUSUM-TCopulaDetector": {
+      "n_budgets": 3,
+      "mean_over_budgets": 0.05539292142881781,
+      "ci95": [
+        0.016651144326024523,
+        0.10754626688150654
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.05756926332738407,
+      "pooled_f05": 0.011198960233676931,
+      "recall": 0.6505376344086021,
+      "precision": 0.008990121048943013,
+      "alarms_per_month": 10.75609756097561,
+      "alarm_time_fraction": 0.7356904411610754,
+      "alarms_per_detected_anomaly": 3.644628099173554,
+      "anomalies_detected": "121/186"
+    },
+    "DynamicFactorModel": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.04859538194942898,
+      "ci95": [
+        0.0012501134529787413,
+        0.11105431575180047
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.05420586190643798,
+      "pooled_f05": 0.018680761077043397,
+      "recall": 0.15591397849462366,
+      "precision": 0.01531151733228383,
+      "alarms_per_month": 26.195121951219512,
+      "alarm_time_fraction": 0.032672375595715675,
+      "alarms_per_detected_anomaly": 37.03448275862069,
+      "anomalies_detected": "29/186"
+    },
+    "EchoStateForecaster": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.06765230872946836,
+      "ci95": [
+        0.017367860717569347,
+        0.12654316329830567
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.0826854356061075,
+      "pooled_f05": 0.04394893772328975,
+      "recall": 0.43010752688172044,
+      "precision": 0.03589266180528956,
+      "alarms_per_month": 22.195121951219512,
+      "alarm_time_fraction": 0.0667907930624716,
+      "alarms_per_detected_anomaly": 11.375,
+      "anomalies_detected": "80/186"
+    },
+    "GBMForecaster": {
+      "n_budgets": 1,
+      "mean_over_budgets": 0.024256767320616657,
+      "ci95": [
+        0.0030908013625576074,
+        0.057435848926248194
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.024256767320616657,
+      "pooled_f05": 0.01986902522058337,
+      "recall": 0.26344086021505375,
+      "precision": 0.016138659583727767,
+      "alarms_per_month": 6.2682926829268295,
+      "alarm_time_fraction": 0.48154556087274547,
+      "alarms_per_detected_anomaly": 5.244897959183674,
+      "anomalies_detected": "49/186"
+    },
+    "GDN": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.031810327312520745,
+      "ci95": [
+        0.005006989774881789,
+        0.07481267179949092
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.03552264544849291,
+      "pooled_f05": 0.030593536927482973,
+      "recall": 0.3333333333333333,
+      "precision": 0.024932493437185232,
+      "alarms_per_month": 21.853658536585368,
+      "alarm_time_fraction": 0.17261058815859376,
+      "alarms_per_detected_anomaly": 14.451612903225806,
+      "anomalies_detected": "62/186"
+    },
+    "GaussianCopulaDetector": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.135967257041765,
+      "ci95": [
+        0.040130691238209476,
+        0.26148130291859206
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.15178832317067933,
+      "pooled_f05": 0.05410510618119132,
+      "recall": 0.45161290322580644,
+      "precision": 0.04434666804032767,
+      "alarms_per_month": 11.463414634146341,
+      "alarm_time_fraction": 0.34865831315768736,
+      "alarms_per_detected_anomaly": 5.595238095238095,
+      "anomalies_detected": "84/186"
+    },
+    "GlobalSTD": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.031800906503641306,
+      "ci95": [
+        0.002136016297085094,
+        0.0771166718599017
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.05578917653880382,
+      "pooled_f05": 0.04926355403168806,
+      "recall": 0.23118279569892472,
+      "precision": 0.04116525289415681,
+      "alarms_per_month": 19.121951219512194,
+      "alarm_time_fraction": 0.0778983351708874,
+      "alarms_per_detected_anomaly": 18.232558139534884,
+      "anomalies_detected": "43/186"
+    },
+    "HalfSpaceTrees": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.0035627481318888333,
+      "ci95": [
+        0.0,
+        0.009730561982690457
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.011855209005213373,
+      "pooled_f05": 0.01939385162658749,
+      "recall": 0.13440860215053763,
+      "precision": 0.015976121019966903,
+      "alarms_per_month": 36.292682926829265,
+      "alarm_time_fraction": 0.15098328293890184,
+      "alarms_per_detected_anomaly": 59.52,
+      "anomalies_detected": "25/186"
+    },
+    "HeterogeneousFusion": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.09168518601653128,
+      "ci95": [
+        0.002751353407213024,
+        0.23002594621850045
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.10594577875343886,
+      "pooled_f05": 0.02544523623114096,
+      "recall": 0.07526881720430108,
+      "precision": 0.02183230678295144,
+      "alarms_per_month": 6.682926829268292,
+      "alarm_time_fraction": 0.0029913235785510306,
+      "alarms_per_detected_anomaly": 19.571428571428573,
+      "anomalies_detected": "14/186"
+    },
+    "HotellingPCA": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.017129243697081988,
+      "ci95": [
+        0.003164028778058682,
+        0.03916242483198149
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.024710556904380003,
+      "pooled_f05": 0.00805746583430103,
+      "recall": 0.2956989247311828,
+      "precision": 0.0064812942752092845,
+      "alarms_per_month": 20.5609756097561,
+      "alarm_time_fraction": 0.08937815433309548,
+      "alarms_per_detected_anomaly": 15.327272727272728,
+      "anomalies_detected": "55/186"
+    },
+    "KalmanAdaptiveTrend": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.058360097349724326,
+      "ci95": [
+        0.011954832227228004,
+        0.11481132282079698
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.09478196520561674,
+      "pooled_f05": 0.031542491181876846,
+      "recall": 0.10752688172043011,
+      "precision": 0.026806717133677053,
+      "alarms_per_month": 3.6341463414634148,
+      "alarm_time_fraction": 0.0014497867705297596,
+      "alarms_per_detected_anomaly": 7.45,
+      "anomalies_detected": "20/186"
+    },
+    "KalmanBlockMultivariate": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.0529675690082397,
+      "ci95": [
+        0.01221576881384004,
+        0.10554479551511924
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.07537108836679937,
+      "pooled_f05": 0.03845185616972627,
+      "recall": 0.3817204301075269,
+      "precision": 0.031393966826610886,
+      "alarms_per_month": 44.19512195121951,
+      "alarm_time_fraction": 0.06744478869149295,
+      "alarms_per_detected_anomaly": 25.52112676056338,
+      "anomalies_detected": "71/186"
+    },
+    "KalmanGlobalMultivariate": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.050601912347108556,
+      "ci95": [
+        0.01077281556556823,
+        0.10274497598304612
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.07289393997598625,
+      "pooled_f05": 0.0363705595673887,
+      "recall": 0.3817204301075269,
+      "precision": 0.029661684394760725,
+      "alarms_per_month": 45.073170731707314,
+      "alarm_time_fraction": 0.07093571590647763,
+      "alarms_per_detected_anomaly": 26.028169014084508,
+      "anomalies_detected": "71/186"
+    },
+    "KalmanLocalTrend": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.049095077877115506,
+      "ci95": [
+        0.011339982191696886,
+        0.09569810340340532
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.07043426508407932,
+      "pooled_f05": 0.03611340570949985,
+      "recall": 0.34408602150537637,
+      "precision": 0.029510170100868885,
+      "alarms_per_month": 27.195121951219512,
+      "alarm_time_fraction": 0.03224000992738807,
+      "alarms_per_detected_anomaly": 17.421875,
+      "anomalies_detected": "64/186"
+    },
+    "KalmanRobustTrend": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.06829359030547519,
+      "ci95": [
+        0.01634913657799571,
+        0.12878999738114397
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.07475442256866521,
+      "pooled_f05": 0.0241059058721362,
+      "recall": 0.22580645161290322,
+      "precision": 0.019705454782941008,
+      "alarms_per_month": 20.121951219512194,
+      "alarm_time_fraction": 0.043705870827862814,
+      "alarms_per_detected_anomaly": 19.642857142857142,
+      "anomalies_detected": "42/186"
+    },
+    "LOEAutoencoder-H": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.027014173121682524,
+      "ci95": [
+        0.009717239528557603,
+        0.05036071335583313
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.032458624277405354,
+      "pooled_f05": 0.015688435413533406,
+      "recall": 0.27956989247311825,
+      "precision": 0.012693207567297814,
+      "alarms_per_month": 8.512195121951219,
+      "alarm_time_fraction": 0.2616784265021771,
+      "alarms_per_detected_anomaly": 6.711538461538462,
+      "anomalies_detected": "52/186"
+    },
+    "LOEAutoencoder-S": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.014289382832662744,
+      "ci95": [
+        0.003054347701954873,
+        0.030149965300017807
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.019741346649136318,
+      "pooled_f05": 0.0093390620615084,
+      "recall": 0.3333333333333333,
+      "precision": 0.007513350235691302,
+      "alarms_per_month": 13.170731707317072,
+      "alarm_time_fraction": 0.3237984787877829,
+      "alarms_per_detected_anomaly": 8.709677419354838,
+      "anomalies_detected": "62/186"
+    },
+    "LSTMForecaster": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.06440013336403838,
+      "ci95": [
+        0.008340434370600773,
+        0.1471206149783059
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.09321165782476418,
+      "pooled_f05": 0.02429130428102082,
+      "recall": 0.25268817204301075,
+      "precision": 0.019813993382533986,
+      "alarms_per_month": 53.609756097560975,
+      "alarm_time_fraction": 0.19349708417019074,
+      "alarms_per_detected_anomaly": 46.765957446808514,
+      "anomalies_detected": "47/186"
+    },
+    "LaggedRidgeForecaster": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.030297142988973364,
+      "ci95": [
+        0.0111397983223957,
+        0.05505877066198149
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.03767333354375975,
+      "pooled_f05": 0.013871873921582544,
+      "recall": 0.3870967741935484,
+      "precision": 0.011177610579697525,
+      "alarms_per_month": 31.097560975609756,
+      "alarm_time_fraction": 0.3213593576612217,
+      "alarms_per_detected_anomaly": 17.708333333333332,
+      "anomalies_detected": "72/186"
+    },
+    "LodaDetector": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.018678711697319605,
+      "ci95": [
+        0.00722357369039209,
+        0.033801872711373304
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.019693071845388356,
+      "pooled_f05": 0.006610822183195504,
+      "recall": 0.521505376344086,
+      "precision": 0.005302100078084966,
+      "alarms_per_month": 47.926829268292686,
+      "alarm_time_fraction": 0.2558123818973601,
+      "alarms_per_detected_anomaly": 20.257731958762886,
+      "anomalies_detected": "97/186"
+    },
+    "MatrixProfileDetector": {
+      "n_budgets": 1,
+      "mean_over_budgets": 0.07369757676373724,
+      "ci95": [
+        0.010404650424751026,
+        0.19026220449385492
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.07369757676373724,
+      "pooled_f05": 0.04238451037217475,
+      "recall": 0.46774193548387094,
+      "precision": 0.03453345928618636,
+      "alarms_per_month": 57.68292682926829,
+      "alarm_time_fraction": 0.061245618254819,
+      "alarms_per_detected_anomaly": 27.183908045977013,
+      "anomalies_detected": "87/186"
+    },
+    "MemStream": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.03374349247284705,
+      "ci95": [
+        0.0098536390840189,
+        0.062322824788674624
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.040736955885053425,
+      "pooled_f05": 0.012254172478819467,
+      "recall": 0.25268817204301075,
+      "precision": 0.009899352267486524,
+      "alarms_per_month": 16.146341463414632,
+      "alarm_time_fraction": 0.18082859986549005,
+      "alarms_per_detected_anomaly": 14.085106382978724,
+      "anomalies_detected": "47/186"
+    },
+    "NearestNominalWindow": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.03817664603186595,
+      "ci95": [
+        0.0029702676502367676,
+        0.0983656055643676
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.047072280032092455,
+      "pooled_f05": 0.017697969583006627,
+      "recall": 0.42473118279569894,
+      "precision": 0.014277359287400995,
+      "alarms_per_month": 19.390243902439025,
+      "alarm_time_fraction": 0.36941663147312265,
+      "alarms_per_detected_anomaly": 10.063291139240507,
+      "anomalies_detected": "79/186"
+    },
+    "OnlineIsolationForest": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.0780376561771579,
+      "ci95": [
+        0.010096063647722545,
+        0.17001336504695017
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.11034015592100614,
+      "pooled_f05": 0.01165853290953737,
+      "recall": 0.3870967741935484,
+      "precision": 0.009383347628982526,
+      "alarms_per_month": 43.853658536585364,
+      "alarm_time_fraction": 0.23312458923133728,
+      "alarms_per_detected_anomaly": 24.97222222222222,
+      "anomalies_detected": "72/186"
+    },
+    "PCAReconstructor": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.015798007004814877,
+      "ci95": [
+        0.0031793499659034845,
+        0.03520393251219235
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.023370229772382185,
+      "pooled_f05": 0.008219008031355005,
+      "recall": 0.3225806451612903,
+      "precision": 0.006608883876271573,
+      "alarms_per_month": 23.048780487804876,
+      "alarm_time_fraction": 0.1078006767033377,
+      "alarms_per_detected_anomaly": 15.75,
+      "anomalies_detected": "60/186"
+    },
+    "PLDAAutoencoder": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.015319471094419867,
+      "ci95": [
+        0.002891882676241985,
+        0.03151505956818109
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.022227154235653548,
+      "pooled_f05": 0.014724058584006626,
+      "recall": 0.25268817204301075,
+      "precision": 0.01191814010602588,
+      "alarms_per_month": 11.536585365853659,
+      "alarm_time_fraction": 0.29533996623121994,
+      "alarms_per_detected_anomaly": 10.063829787234043,
+      "anomalies_detected": "47/186"
+    },
+    "PyOD-COPOD": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.08845357709590226,
+      "ci95": [
+        0.005200505337722492,
+        0.2108671674564539
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.09142474823649026,
+      "pooled_f05": 0.05506184061963604,
+      "recall": 0.10752688172043011,
+      "precision": 0.04907554566036838,
+      "alarms_per_month": 22.609756097560975,
+      "alarm_time_fraction": 0.011021068974750303,
+      "alarms_per_detected_anomaly": 46.35,
+      "anomalies_detected": "20/186"
+    },
+    "PyOD-ECOD": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.09494307497328607,
+      "ci95": [
+        0.005352081827363281,
+        0.22167590051324268
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.10401124660522254,
+      "pooled_f05": 0.02874558499446528,
+      "recall": 0.11290322580645161,
+      "precision": 0.024230292685442804,
+      "alarms_per_month": 13.0,
+      "alarm_time_fraction": 0.006557999896845024,
+      "alarms_per_detected_anomaly": 25.38095238095238,
+      "anomalies_detected": "21/186"
+    },
+    "PyOD-IForest": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.07484916370913959,
+      "ci95": [
+        0.003226774092819091,
+        0.19375210496525014
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.0978311412722746,
+      "pooled_f05": 0.05720711710604621,
+      "recall": 0.1935483870967742,
+      "precision": 0.048641062473844136,
+      "alarms_per_month": 57.46341463414634,
+      "alarm_time_fraction": 0.03698871270271609,
+      "alarms_per_detected_anomaly": 65.44444444444444,
+      "anomalies_detected": "36/186"
+    },
+    "RoCAFull": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.0005553340040741035,
+      "ci95": [
+        0.0,
+        0.0016660020122223104
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.002221336016296414,
+      "pooled_f05": 0.0004983178960850808,
+      "recall": 0.005376344086021506,
+      "precision": 0.0004061839211407035,
+      "alarms_per_month": 54.97560975609756,
+      "alarm_time_fraction": 0.0844614417488544,
+      "alarms_per_detected_anomaly": 2254.0,
+      "anomalies_detected": "1/186"
+    },
+    "RoCALite": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.09504364203687082,
+      "ci95": [
+        0.004099344664442336,
+        0.22487956722156044
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.11368514770483934,
+      "pooled_f05": 0.04193542130677655,
+      "recall": 0.24193548387096775,
+      "precision": 0.03475310971823178,
+      "alarms_per_month": 47.292682926829265,
+      "alarm_time_fraction": 0.03733886080497972,
+      "alarms_per_detected_anomaly": 43.08888888888889,
+      "anomalies_detected": "45/186"
+    },
+    "RoCALite-multiseed": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.05072695203585775,
+      "ci95": [
+        0.0024438024606853698,
+        0.13294236683223648
+      ],
+      "best_budget": 50.0,
+      "best_budget_macro": 0.07182185406075844,
+      "pooled_f05": 0.030645610491960767,
+      "recall": 0.3279569892473118,
+      "precision": 0.024983398086999432,
+      "alarms_per_month": 73.02439024390245,
+      "alarm_time_fraction": 0.098791640090647,
+      "alarms_per_detected_anomaly": 49.08196721311475,
+      "anomalies_detected": "61/186"
+    },
+    "RoCALite-nu05": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.045976323450255284,
+      "ci95": [
+        0.005439722254140788,
+        0.09943020206014323
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.08053964021263858,
+      "pooled_f05": 0.017804113253611215,
+      "recall": 0.16129032258064516,
+      "precision": 0.014564840039247545,
+      "alarms_per_month": 19.146341463414632,
+      "alarm_time_fraction": 0.04721671409922312,
+      "alarms_per_detected_anomaly": 26.166666666666668,
+      "anomalies_detected": "30/186"
+    },
+    "RoCALite-nu10": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.04911698655022012,
+      "ci95": [
+        0.0,
+        0.14649063280458596
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.061137168744242555,
+      "pooled_f05": 0.023967443813619847,
+      "recall": 0.043010752688172046,
+      "precision": 0.021578892731749656,
+      "alarms_per_month": 22.365853658536587,
+      "alarm_time_fraction": 0.010607768249278227,
+      "alarms_per_detected_anomaly": 114.625,
+      "anomalies_detected": "8/186"
+    },
+    "SubsystemPCAEnsemble": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.05426098659997014,
+      "ci95": [
+        0.010002429686290205,
+        0.11872744732210722
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.08283871635009116,
+      "pooled_f05": 0.04942908268293006,
+      "recall": 0.26881720430107525,
+      "precision": 0.04105299997102701,
+      "alarms_per_month": 18.4390243902439,
+      "alarm_time_fraction": 0.059513091572835686,
+      "alarms_per_detected_anomaly": 15.12,
+      "anomalies_detected": "50/186"
+    },
+    "TCopulaDetector": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.15150061625907307,
+      "ci95": [
+        0.047282378919018715,
+        0.27894589825030225
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.15973199880454253,
+      "pooled_f05": 0.08379511362783064,
+      "recall": 0.44623655913978494,
+      "precision": 0.06965196548384128,
+      "alarms_per_month": 11.097560975609756,
+      "alarm_time_fraction": 0.37859520989906303,
+      "alarms_per_detected_anomaly": 5.481927710843373,
+      "anomalies_detected": "83/186"
+    },
+    "USDR-SubsystemPCAEnsemble": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.03866052615908567,
+      "ci95": [
+        0.008253138945844405,
+        0.07634120244600691
+      ],
+      "best_budget": 20.0,
+      "best_budget_macro": 0.04792879548430017,
+      "pooled_f05": 0.010939186970135586,
+      "recall": 0.3225806451612903,
+      "precision": 0.00881110912559474,
+      "alarms_per_month": 25.0,
+      "alarm_time_fraction": 0.09686131462653902,
+      "alarms_per_detected_anomaly": 17.083333333333332,
+      "anomalies_detected": "60/186"
+    },
+    "VARMahalanobis": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.04992358504468078,
+      "ci95": [
+        0.005435511782780894,
+        0.1157485633568297
+      ],
+      "best_budget": 10.0,
+      "best_budget_macro": 0.06498823826117553,
+      "pooled_f05": 0.045279501090966484,
+      "recall": 0.1774193548387097,
+      "precision": 0.0381719887565148,
+      "alarms_per_month": 12.804878048780488,
+      "alarm_time_fraction": 0.08907754103771504,
+      "alarms_per_detected_anomaly": 15.909090909090908,
+      "anomalies_detected": "33/186"
+    },
+    "WindowedIsolationForest": {
+      "n_budgets": 4,
+      "mean_over_budgets": 0.07727577103131435,
+      "ci95": [
+        0.0027244563399770505,
+        0.180636481091821
+      ],
+      "best_budget": 5.0,
+      "best_budget_macro": 0.09184967450607899,
+      "pooled_f05": 0.054818209036416966,
+      "recall": 0.10215053763440861,
+      "precision": 0.049127317906217424,
+      "alarms_per_month": 8.414634146341463,
+      "alarm_time_fraction": 0.0030044307267641512,
+      "alarms_per_detected_anomaly": 18.157894736842106,
+      "anomalies_detected": "19/186"
+    }
+  }
+}

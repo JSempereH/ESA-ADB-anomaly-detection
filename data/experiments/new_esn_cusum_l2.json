@@ -1,0 +1,118 @@
+{
+  "models": [
+    "EchoStateForecaster",
+    "CUSUM-TCopulaDetector"
+  ],
+  "budgets": [
+    5.0,
+    10.0,
+    20.0,
+    50.0
+  ],
+  "results": [
+    {
+      "model": "EchoStateForecaster",
+      "budget": 5.0,
+      "f_beta_all": 0.6423665787852509,
+      "recall_all": 0.28296903460837886,
+      "precision_all": 0.9412291914106272,
+      "f_beta_anomalies": 0.03155072673773064,
+      "recall_anomalies": 0.25806451612903225,
+      "precision_anomalies": 0.02587322874694828,
+      "macro_f0.5_all": 0.5361552341919279,
+      "macro_f0.5_anomalies_only": 0.04179688288166418,
+      "n_detections": 151
+    },
+    {
+      "model": "CUSUM-TCopulaDetector",
+      "budget": 5.0,
+      "f_beta_all": 0.35268752827600713,
+      "recall_all": 0.6851548269581057,
+      "precision_all": 0.31453140551779346,
+      "f_beta_anomalies": 0.13071452348518853,
+      "recall_anomalies": 0.8440860215053764,
+      "precision_anomalies": 0.10791391216750104,
+      "macro_f0.5_all": 0.3504377091874013,
+      "macro_f0.5_anomalies_only": 0.3349225258186327,
+      "n_detections": 41
+    },
+    {
+      "model": "EchoStateForecaster",
+      "budget": 10.0,
+      "f_beta_all": 0.7385788717353339,
+      "recall_all": 0.5895264116575591,
+      "precision_all": 0.7884133431114736,
+      "f_beta_anomalies": 0.026319662405602063,
+      "recall_anomalies": 0.3709677419354839,
+      "precision_anomalies": 0.02135880563164627,
+      "macro_f0.5_all": 0.7254013156190139,
+      "macro_f0.5_anomalies_only": 0.06381936633114726,
+      "n_detections": 449
+    },
+    {
+      "model": "CUSUM-TCopulaDetector",
+      "budget": 10.0,
+      "f_beta_all": 0.35268752827600713,
+      "recall_all": 0.6851548269581057,
+      "precision_all": 0.31453140551779346,
+      "f_beta_anomalies": 0.13071452348518853,
+      "recall_anomalies": 0.8440860215053764,
+      "precision_anomalies": 0.10791391216750104,
+      "macro_f0.5_all": 0.3504377091874013,
+      "macro_f0.5_anomalies_only": 0.3349225258186327,
+      "n_detections": 41
+    },
+    {
+      "model": "EchoStateForecaster",
+      "budget": 20.0,
+      "f_beta_all": 0.631069478578543,
+      "recall_all": 0.8348816029143898,
+      "precision_all": 0.5947704883110075,
+      "f_beta_anomalies": 0.04394893772328975,
+      "recall_anomalies": 0.43010752688172044,
+      "precision_anomalies": 0.03589266180528956,
+      "macro_f0.5_all": 0.7257702385221994,
+      "macro_f0.5_anomalies_only": 0.0826854356061075,
+      "n_detections": 910
+    },
+    {
+      "model": "CUSUM-TCopulaDetector",
+      "budget": 20.0,
+      "f_beta_all": 0.35268752827600713,
+      "recall_all": 0.6851548269581057,
+      "precision_all": 0.31453140551779346,
+      "f_beta_anomalies": 0.13071452348518853,
+      "recall_anomalies": 0.8440860215053764,
+      "precision_anomalies": 0.10791391216750104,
+      "macro_f0.5_all": 0.3504377091874013,
+      "macro_f0.5_anomalies_only": 0.3349225258186327,
+      "n_detections": 41
+    },
+    {
+      "model": "EchoStateForecaster",
+      "budget": 50.0,
+      "f_beta_all": 0.5557970927687076,
+      "recall_all": 0.8855191256830601,
+      "precision_all": 0.508465459774797,
+      "f_beta_anomalies": 0.0376193914444172,
+      "recall_anomalies": 0.43548387096774194,
+      "precision_anomalies": 0.03062461630044769,
+      "macro_f0.5_all": 0.6448749485653698,
+      "macro_f0.5_anomalies_only": 0.08230755009895452,
+      "n_detections": 1150
+    },
+    {
+      "model": "CUSUM-TCopulaDetector",
+      "budget": 50.0,
+      "f_beta_all": 0.35268752827600713,
+      "recall_all": 0.6851548269581057,
+      "precision_all": 0.31453140551779346,
+      "f_beta_anomalies": 0.13071452348518853,
+      "recall_anomalies": 0.8440860215053764,
+      "precision_anomalies": 0.10791391216750104,
+      "macro_f0.5_all": 0.3504377091874013,
+      "macro_f0.5_anomalies_only": 0.3349225258186327,
+      "n_detections": 41
+    }
+  ]
+}

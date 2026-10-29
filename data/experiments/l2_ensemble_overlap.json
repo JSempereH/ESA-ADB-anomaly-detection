@@ -1,0 +1,178 @@
+{
+  "models": [
+    "PyOD-ECOD",
+    "PyOD-IForest",
+    "LSTMForecaster",
+    "WindowedIsolationForest",
+    "PyOD-COPOD"
+  ],
+  "budgets": {
+    "PyOD-ECOD": 10.0,
+    "PyOD-IForest": 50.0,
+    "LSTMForecaster": 10.0,
+    "WindowedIsolationForest": 5.0,
+    "PyOD-COPOD": 10.0
+  },
+  "detected_events_per_model": {
+    "PyOD-ECOD": [
+      "id_622",
+      "id_633",
+      "id_639"
+    ],
+    "PyOD-IForest": [
+      "id_615",
+      "id_618",
+      "id_621",
+      "id_622",
+      "id_633",
+      "id_639",
+      "id_641",
+      "id_643"
+    ],
+    "LSTMForecaster": [
+      "id_60",
+      "id_605",
+      "id_615",
+      "id_618",
+      "id_619",
+      "id_621",
+      "id_629",
+      "id_633",
+      "id_639",
+      "id_641"
+    ],
+    "WindowedIsolationForest": [
+      "id_633",
+      "id_639"
+    ],
+    "PyOD-COPOD": [
+      "id_633",
+      "id_639"
+    ]
+  },
+  "pairwise_overlap": [
+    {
+      "a": "PyOD-ECOD",
+      "b": "PyOD-IForest",
+      "jaccard": 0.375,
+      "a_only": 0,
+      "b_only": 5,
+      "both": 3
+    },
+    {
+      "a": "PyOD-ECOD",
+      "b": "LSTMForecaster",
+      "jaccard": 0.18181818181818182,
+      "a_only": 1,
+      "b_only": 8,
+      "both": 2
+    },
+    {
+      "a": "PyOD-ECOD",
+      "b": "WindowedIsolationForest",
+      "jaccard": 0.6666666666666666,
+      "a_only": 1,
+      "b_only": 0,
+      "both": 2
+    },
+    {
+      "a": "PyOD-ECOD",
+      "b": "PyOD-COPOD",
+      "jaccard": 0.6666666666666666,
+      "a_only": 1,
+      "b_only": 0,
+      "both": 2
+    },
+    {
+      "a": "PyOD-IForest",
+      "b": "LSTMForecaster",
+      "jaccard": 0.5,
+      "a_only": 2,
+      "b_only": 4,
+      "both": 6
+    },
+    {
+      "a": "PyOD-IForest",
+      "b": "WindowedIsolationForest",
+      "jaccard": 0.25,
+      "a_only": 6,
+      "b_only": 0,
+      "both": 2
+    },
+    {
+      "a": "PyOD-IForest",
+      "b": "PyOD-COPOD",
+      "jaccard": 0.25,
+      "a_only": 6,
+      "b_only": 0,
+      "both": 2
+    },
+    {
+      "a": "LSTMForecaster",
+      "b": "WindowedIsolationForest",
+      "jaccard": 0.2,
+      "a_only": 8,
+      "b_only": 0,
+      "both": 2
+    },
+    {
+      "a": "LSTMForecaster",
+      "b": "PyOD-COPOD",
+      "jaccard": 0.2,
+      "a_only": 8,
+      "b_only": 0,
+      "both": 2
+    },
+    {
+      "a": "WindowedIsolationForest",
+      "b": "PyOD-COPOD",
+      "jaccard": 1.0,
+      "a_only": 0,
+      "b_only": 0,
+      "both": 2
+    }
+  ],
+  "union_detected_events": [
+    "id_60",
+    "id_605",
+    "id_615",
+    "id_618",
+    "id_619",
+    "id_621",
+    "id_622",
+    "id_629",
+    "id_633",
+    "id_639",
+    "id_641",
+    "id_643"
+  ],
+  "n_anomaly_events": 186,
+  "ensemble_anomalies_only": {
+    "precision": 0.014837474158673676,
+    "recall": 0.3010752688172043,
+    "f_beta": 0.01832111913362432,
+    "beta": 0.5,
+    "tnr_t": 0.7820221674218597,
+    "n_t": 5874657,
+    "tn_t": 4594112,
+    "raw_precision": 0.018973214285714284,
+    "n_events": 186,
+    "n_detections": 3584,
+    "n_events_detected": 56,
+    "n_detections_hit": 68
+  },
+  "ensemble_all_events": {
+    "precision": 0.11457299753407446,
+    "recall": 0.6927140255009108,
+    "f_beta": 0.13752949664964934,
+    "beta": 0.5,
+    "tnr_t": 0.7927212802357584,
+    "n_t": 5646460,
+    "tn_t": 4476069,
+    "raw_precision": 0.14453125,
+    "n_events": 10980,
+    "n_detections": 3584,
+    "n_events_detected": 7606,
+    "n_detections_hit": 518
+  }
+}

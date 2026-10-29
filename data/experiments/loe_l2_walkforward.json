@@ -1,0 +1,159 @@
+{
+  "models": [
+    "Autoencoder",
+    "LOEAutoencoder-H",
+    "LOEAutoencoder-S"
+  ],
+  "budgets": [
+    5.0,
+    10.0,
+    20.0,
+    50.0
+  ],
+  "results": [
+    {
+      "model": "Autoencoder",
+      "budget": 5.0,
+      "run_id": "d687800d643b",
+      "f_beta_all": 0.6400789887643297,
+      "recall_all": 0.347632058287796,
+      "precision_all": 0.8105482746639316,
+      "f_beta_anomalies": 0.08383748806977465,
+      "recall_anomalies": 0.11290322580645161,
+      "precision_anomalies": 0.07876799208414369,
+      "n_detections": 219
+    },
+    {
+      "model": "Autoencoder",
+      "budget": 10.0,
+      "run_id": "ce665197bad5",
+      "f_beta_all": 0.3884812814450422,
+      "recall_all": 0.6209471766848816,
+      "precision_all": 0.3552337910186172,
+      "f_beta_anomalies": 0.009830858396635478,
+      "recall_anomalies": 0.3333333333333333,
+      "precision_anomalies": 0.007911351945731039,
+      "n_detections": 526
+    },
+    {
+      "model": "Autoencoder",
+      "budget": 20.0,
+      "run_id": "5b868f2a2813",
+      "f_beta_all": 0.20354965699376984,
+      "recall_all": 0.7256830601092896,
+      "precision_all": 0.1725177608056007,
+      "f_beta_anomalies": 0.00685540774054766,
+      "recall_anomalies": 0.3763440860215054,
+      "precision_anomalies": 0.0055043795252289135,
+      "n_detections": 796
+    },
+    {
+      "model": "Autoencoder",
+      "budget": 50.0,
+      "run_id": "a677873a4fe2",
+      "f_beta_all": 0.15969620530886758,
+      "recall_all": 0.7595628415300546,
+      "precision_all": 0.13336489185661943,
+      "f_beta_anomalies": 0.005618181746141129,
+      "recall_anomalies": 0.3763440860215054,
+      "precision_anomalies": 0.00450800477682047,
+      "n_detections": 880
+    },
+    {
+      "model": "LOEAutoencoder-H",
+      "budget": 5.0,
+      "run_id": "b0b5073e7f91",
+      "f_beta_all": 0.623189538374414,
+      "recall_all": 0.2826047358834244,
+      "precision_all": 0.8919154326001285,
+      "f_beta_anomalies": 0.019813145629275816,
+      "recall_anomalies": 0.1989247311827957,
+      "precision_anomalies": 0.01617268023521073,
+      "n_detections": 177
+    },
+    {
+      "model": "LOEAutoencoder-H",
+      "budget": 10.0,
+      "run_id": "f38afcc8875b",
+      "f_beta_all": 0.5404888587601555,
+      "recall_all": 0.5762295081967214,
+      "precision_all": 0.5322358729779798,
+      "f_beta_anomalies": 0.015688435413533406,
+      "recall_anomalies": 0.27956989247311825,
+      "precision_anomalies": 0.012693207567297814,
+      "n_detections": 349
+    },
+    {
+      "model": "LOEAutoencoder-H",
+      "budget": 20.0,
+      "run_id": "f7c9daad0b78",
+      "f_beta_all": 0.31696967853868674,
+      "recall_all": 0.7446265938069216,
+      "precision_all": 0.2771729150260124,
+      "f_beta_anomalies": 0.010919649342344361,
+      "recall_anomalies": 0.3333333333333333,
+      "precision_anomalies": 0.008793331532003765,
+      "n_detections": 693
+    },
+    {
+      "model": "LOEAutoencoder-H",
+      "budget": 50.0,
+      "run_id": "dbb5c1710cfe",
+      "f_beta_all": 0.25913933687281343,
+      "recall_all": 0.779143897996357,
+      "precision_all": 0.2220842929945174,
+      "f_beta_anomalies": 0.009008367811138195,
+      "recall_anomalies": 0.3333333333333333,
+      "precision_anomalies": 0.007245858262713293,
+      "n_detections": 779
+    },
+    {
+      "model": "LOEAutoencoder-S",
+      "budget": 5.0,
+      "run_id": "464a77889a00",
+      "f_beta_all": 0.6861299232780373,
+      "recall_all": 0.3256830601092896,
+      "precision_all": 0.9485911526868162,
+      "f_beta_anomalies": 0.006445724905818661,
+      "recall_anomalies": 0.06989247311827956,
+      "precision_anomalies": 0.005253478709456626,
+      "n_detections": 179
+    },
+    {
+      "model": "LOEAutoencoder-S",
+      "budget": 10.0,
+      "run_id": "e003fed047d0",
+      "f_beta_all": 0.34039876462864344,
+      "recall_all": 0.5998178506375228,
+      "precision_all": 0.30718469297249634,
+      "f_beta_anomalies": 0.0093390620615084,
+      "recall_anomalies": 0.3333333333333333,
+      "precision_anomalies": 0.007513350235691302,
+      "n_detections": 540
+    },
+    {
+      "model": "LOEAutoencoder-S",
+      "budget": 20.0,
+      "run_id": "ccfab46e52b2",
+      "f_beta_all": 0.19464995720660305,
+      "recall_all": 0.7441712204007286,
+      "precision_all": 0.16431585705120455,
+      "f_beta_anomalies": 0.006164720744025545,
+      "recall_anomalies": 0.3387096774193548,
+      "precision_anomalies": 0.004949794445035926,
+      "n_detections": 711
+    },
+    {
+      "model": "LOEAutoencoder-S",
+      "budget": 50.0,
+      "run_id": "6aeb16080e92",
+      "f_beta_all": 0.16340727171186029,
+      "recall_all": 0.7635701275045538,
+      "precision_all": 0.1365711806766607,
+      "f_beta_anomalies": 0.006236684350540734,
+      "recall_anomalies": 0.3763440860215054,
+      "precision_anomalies": 0.005005938925397664,
+      "n_detections": 735
+    }
+  ]
+}

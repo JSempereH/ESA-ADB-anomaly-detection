@@ -1,0 +1,65 @@
+{
+  "models": [
+    "Autoencoder-multiseed"
+  ],
+  "budgets": [
+    5.0,
+    10.0,
+    20.0,
+    50.0
+  ],
+  "results": [
+    {
+      "model": "Autoencoder-multiseed",
+      "budget": 5.0,
+      "run_id": "6e6df9c5aaf0",
+      "f_beta_all": 0.7124797218368233,
+      "recall_all": 0.3680327868852459,
+      "precision_all": 0.9301039943610687,
+      "f_beta_anomalies": 0.005902276454586374,
+      "recall_anomalies": 0.06989247311827956,
+      "precision_anomalies": 0.004802940870987588,
+      "macro_f0.5_anomalies_only": 0.002690298681031612,
+      "n_detections": 192
+    },
+    {
+      "model": "Autoencoder-multiseed",
+      "budget": 10.0,
+      "run_id": "92ad9b9baaaf",
+      "f_beta_all": 0.3954695530812274,
+      "recall_all": 0.6255009107468124,
+      "precision_all": 0.36217188369231434,
+      "f_beta_anomalies": 0.0122242141332153,
+      "recall_anomalies": 0.3387096774193548,
+      "precision_anomalies": 0.009850473079128716,
+      "macro_f0.5_anomalies_only": 0.008356022448995753,
+      "n_detections": 478
+    },
+    {
+      "model": "Autoencoder-multiseed",
+      "budget": 20.0,
+      "run_id": "b59ad99f3e98",
+      "f_beta_all": 0.23511681658901223,
+      "recall_all": 0.7402550091074681,
+      "precision_all": 0.2008522285587935,
+      "f_beta_anomalies": 0.008799886871683892,
+      "recall_anomalies": 0.3924731182795699,
+      "precision_anomalies": 0.007071620950419828,
+      "macro_f0.5_anomalies_only": 0.01498679700287135,
+      "n_detections": 564
+    },
+    {
+      "model": "Autoencoder-multiseed",
+      "budget": 50.0,
+      "run_id": "6f0b22b912ad",
+      "f_beta_all": 0.1833119624265075,
+      "recall_all": 0.7669398907103825,
+      "precision_all": 0.15401187276999734,
+      "f_beta_anomalies": 0.007070633948335317,
+      "recall_anomalies": 0.3924731182795699,
+      "precision_anomalies": 0.005676961919927011,
+      "macro_f0.5_anomalies_only": 0.013864296227261172,
+      "n_detections": 637
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "models": [
+    "KalmanLocalTrend",
+    "Autoencoder"
+  ],
+  "budgets": [
+    5.0,
+    10.0,
+    20.0,
+    50.0
+  ],
+  "results": [
+    {
+      "model": "KalmanLocalTrend",
+      "budget": 5.0,
+      "run_id": "d8364a9ec277",
+      "f_beta_all": 0.6251845037885531,
+      "recall_all": 0.25428051001821494,
+      "precision_all": 0.9840160632370604,
+      "f_beta_anomalies": 0.019429939514797198,
+      "recall_anomalies": 0.17204301075268819,
+      "precision_anomalies": 0.015903161158392156,
+      "macro_f0.5_anomalies_only": 0.023939581687435183,
+      "n_detections": 188
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "budget": 10.0,
+      "run_id": "7a1d76c65416",
+      "f_beta_all": 0.7305649478208578,
+      "recall_all": 0.600455373406193,
+      "precision_all": 0.7724071786246186,
+      "f_beta_anomalies": 0.021242067352882563,
+      "recall_anomalies": 0.24193548387096775,
+      "precision_anomalies": 0.017297398078177907,
+      "macro_f0.5_anomalies_only": 0.03982495856450453,
+      "n_detections": 513
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "budget": 20.0,
+      "run_id": "5486390c3ed9",
+      "f_beta_all": 0.7319987333608132,
+      "recall_all": 0.8314207650273224,
+      "precision_all": 0.7107506842358998,
+      "f_beta_anomalies": 0.024017993300539636,
+      "recall_anomalies": 0.2903225806451613,
+      "precision_anomalies": 0.019537659453537533,
+      "macro_f0.5_anomalies_only": 0.06218150617244297,
+      "n_detections": 752
+    },
+    {
+      "model": "KalmanLocalTrend",
+      "budget": 50.0,
+      "run_id": "b31d76f66723",
+      "f_beta_all": 0.5969649830491429,
+      "recall_all": 0.9006375227686703,
+      "precision_all": 0.5505564985206255,
+      "f_beta_anomalies": 0.03611340570949985,
+      "recall_anomalies": 0.34408602150537637,
+      "precision_anomalies": 0.029510170100868885,
+      "macro_f0.5_anomalies_only": 0.07043426508407932,
+      "n_detections": 1115
+    },
+    {
+      "model": "Autoencoder",
+      "budget": 5.0,
+      "run_id": "e7e02bfec1a2",
+      "f_beta_all": 0.6400789887643297,
+      "recall_all": 0.347632058287796,
+      "precision_all": 0.8105482746639316,
+      "f_beta_anomalies": 0.08383748806977465,
+      "recall_anomalies": 0.11290322580645161,
+      "precision_anomalies": 0.07876799208414369,
+      "macro_f0.5_anomalies_only": 0.05692559957313558,
+      "n_detections": 219
+    },
+    {
+      "model": "Autoencoder",
+      "budget": 10.0,
+      "run_id": "71d6605edbc8",
+      "f_beta_all": 0.3884812814450422,
+      "recall_all": 0.6209471766848816,
+      "precision_all": 0.3552337910186172,
+      "f_beta_anomalies": 0.009830858396635478,
+      "recall_anomalies": 0.3333333333333333,
+      "precision_anomalies": 0.007911351945731039,
+      "macro_f0.5_anomalies_only": 0.013551621537040386,
+      "n_detections": 526
+    },
+    {
+      "model": "Autoencoder",
+      "budget": 20.0,
+      "run_id": "3096bbfeca10",
+      "f_beta_all": 0.20354965699376984,
+      "recall_all": 0.7256830601092896,
+      "precision_all": 0.1725177608056007,
+      "f_beta_anomalies": 0.00685540774054766,
+      "recall_anomalies": 0.3763440860215054,
+      "precision_anomalies": 0.0055043795252289135,
+      "macro_f0.5_anomalies_only": 0.014366408507891143,
+      "n_detections": 796
+    },
+    {
+      "model": "Autoencoder",
+      "budget": 50.0,
+      "run_id": "566abd185c4f",
+      "f_beta_all": 0.15969620530886758,
+      "recall_all": 0.7595628415300546,
+      "precision_all": 0.13336489185661943,
+      "f_beta_anomalies": 0.005618181746141129,
+      "recall_anomalies": 0.3763440860215054,
+      "precision_anomalies": 0.00450800477682047,
+      "macro_f0.5_anomalies_only": 0.01909259061514972,
+      "n_detections": 880
+    }
+  ]
+}

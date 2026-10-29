@@ -1,0 +1,65 @@
+{
+  "models": [
+    "KalmanBlockMultivariate"
+  ],
+  "budgets": [
+    5.0,
+    10.0,
+    20.0,
+    50.0
+  ],
+  "results": [
+    {
+      "model": "KalmanBlockMultivariate",
+      "budget": 5.0,
+      "f_beta_all": 0.6697779717223806,
+      "recall_all": 0.2939890710382514,
+      "precision_all": 0.9843310676069609,
+      "f_beta_anomalies": 0.012701570773821145,
+      "recall_anomalies": 0.12903225806451613,
+      "precision_anomalies": 0.010365323243552771,
+      "macro_f0.5_all": 0.5804510054402495,
+      "macro_f0.5_anomalies_only": 0.020636611117895786,
+      "n_detections": 192
+    },
+    {
+      "model": "KalmanBlockMultivariate",
+      "budget": 10.0,
+      "f_beta_all": 0.6042103038735397,
+      "recall_all": 0.6137522768670309,
+      "precision_all": 0.6018709900538113,
+      "f_beta_anomalies": 0.02532578454815333,
+      "recall_anomalies": 0.24193548387096775,
+      "precision_anomalies": 0.02069387421437371,
+      "macro_f0.5_all": 0.7511518162630235,
+      "macro_f0.5_anomalies_only": 0.04983075405069084,
+      "n_detections": 661
+    },
+    {
+      "model": "KalmanBlockMultivariate",
+      "budget": 20.0,
+      "f_beta_all": 0.47412874712625314,
+      "recall_all": 0.8012750455373406,
+      "precision_all": 0.43021633460173714,
+      "f_beta_anomalies": 0.05222684886997727,
+      "recall_anomalies": 0.2956989247311828,
+      "precision_anomalies": 0.043311426720744964,
+      "macro_f0.5_all": 0.670337514858422,
+      "macro_f0.5_anomalies_only": 0.06603182249757275,
+      "n_detections": 1309
+    },
+    {
+      "model": "KalmanBlockMultivariate",
+      "budget": 50.0,
+      "f_beta_all": 0.3867656630043717,
+      "recall_all": 0.8939890710382513,
+      "precision_all": 0.33872060682549665,
+      "f_beta_anomalies": 0.03845185616972627,
+      "recall_anomalies": 0.3817204301075269,
+      "precision_anomalies": 0.031393966826610886,
+      "macro_f0.5_all": 0.6255335185410735,
+      "macro_f0.5_anomalies_only": 0.07537108836679937,
+      "n_detections": 1812
+    }
+  ]
+}
