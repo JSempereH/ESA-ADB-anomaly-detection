@@ -453,8 +453,9 @@ def run_walk_forward(
     warmup_folds: int = 0,
     ae_seed: int = 42,
     full_history: bool = False,
+    return_records: bool = False,
     verbose: bool = True,
-) -> dict:
+) -> dict | tuple[dict, dict]:
     """`full_history=False` (default, every existing logged run): folds only cover
     `config.split.test_start -> test_end` -- the mission's first half (`train_start ->
     test_start`, the paper's own train+val period) is never walked forward, so the
@@ -565,7 +566,7 @@ def run_walk_forward(
                     "merge_gap_rows": pp.merge_gap_rows, "min_duration_rows": pp.min_duration_rows,
                     "smooth_alphas": [a for a in pp.smooth_alphas], "n_channels": len(data.target_channels),
                     "full_history": full_history,
-                },
+                } | runners[name].run_config(),
                 metrics=agg,
                 dataset_scope={"n_folds": agg["n_folds"], "test_start": str(fold_start), "test_end": str(data.config.split.test_end)},
                 notes=tag or f"run_benchmark walk-forward ({step_desc} folds, {calibration}-calibrated thresholds, alarm postprocessing)",
@@ -584,6 +585,8 @@ def run_walk_forward(
                 )
     if verbose:
         print(f"total: {time.time() - t_start:.1f}s")
+    if return_records:
+        return summary, records
     return summary
 
 
@@ -741,10 +744,10 @@ def run_paper_split(
     ae_refit_epochs: int = 30,
     alarm_budget: float = 20.0,
     max_alarm_time_fraction: float = 0.02,
+    fit_on_all_rows: bool = False,
     verbose: bool = True,
 ) -> dict:
-    """The paper's own fixed split: fit on the train period's nominal rows, calibrate
-    the threshold on the validation period, score the full test period once."""
+    """The paper's chronological split, with either nominal-only or contaminated L2 fitting."""
     pp = pp or PostprocessSpec()
     runners = build_runners(model_names, len(data.input_channels), data.channel_groups, data.spec)
     for runner in runners.values():
@@ -758,10 +761,10 @@ def run_paper_split(
     # (confirmed OOM-killed at that stage on a 16 GB machine) -- releasing each one
     # immediately keeps at most one DataFrame + its array in memory at a time.
     train_raw = data.lf.filter(pl.col("split") == "train").select(["time", *data.target_channels]).collect()
-    train_nominal = filter_nominal_rows(train_raw, data.labels_long, data.target_channels)
+    train_fit = train_raw if fit_on_all_rows else filter_nominal_rows(train_raw, data.labels_long, data.target_channels)
     del train_raw
-    fit_values = channel_matrix(train_nominal, data.input_channels)
-    del train_nominal
+    fit_values = channel_matrix(train_fit, data.input_channels)
+    del train_fit
 
     val_df = _load_slice(data, data.config.split.val_start, data.config.split.train_end)
     val_values = channel_matrix(val_df, data.input_channels)
@@ -775,7 +778,8 @@ def run_paper_split(
     test_y = row_is_non_nominal(test_df, data.labels_long, data.target_channels)
     del test_df
     if verbose:
-        print(f"paper-split: fit={fit_values.shape[0]} rows (nominal), val={val_values.shape[0]}, test={test_values.shape[0]}")
+        fit_scope = "all contaminated rows" if fit_on_all_rows else "label-filtered nominal rows"
+        print(f"paper-split: fit={fit_values.shape[0]} rows ({fit_scope}), val={val_values.shape[0]}, test={test_values.shape[0]}")
 
     summary: dict[str, dict] = {}
     for name, runner in runners.items():
@@ -799,10 +803,11 @@ def run_paper_split(
             mission=data.mission,
             config={
                 "protocol": "paper-split", "calibration": calibration,
-                "supervision": _supervision_descriptor(calibration, False),
+                "fit_on_all_rows": fit_on_all_rows,
+                "supervision": _supervision_descriptor(calibration, fit_on_all_rows),
                 "merge_gap_rows": pp.merge_gap_rows, "min_duration_rows": pp.min_duration_rows,
                 "smooth_alphas": [a for a in pp.smooth_alphas], "n_channels": len(data.target_channels),
-            },
+            } | runner.run_config(),
             metrics=agg,
             dataset_scope={"test_rows": int(test_values.shape[0]), "n_channels": len(data.target_channels)},
             notes=tag or f"run_benchmark paper-split ({calibration}-calibrated thresholds, alarm postprocessing)",

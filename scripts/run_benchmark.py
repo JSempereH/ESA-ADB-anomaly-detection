@@ -96,6 +96,7 @@ def main() -> None:
             calibration=args.calibration, pp=pp,
             mlflow=args.mlflow, tag=args.tag, ae_refit_epochs=args.ae_epochs,
             alarm_budget=args.alarm_budget, max_alarm_time_fraction=args.max_alarm_time_frac,
+            fit_on_all_rows=args.fit_on_all_rows,
         )
 
 
